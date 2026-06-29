@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 48" fill="none" font-family="'Helvetica Neue',Arial,sans-serif">
+  <g transform="translate(2,3)" stroke="#0B2C4A" stroke-width="2" fill="none">
+    <circle cx="21" cy="21" r="20"/>
+    <path d="M21 6 L21 36 M6 21 L36 21" stroke-width="1.4"/>
+    <path d="M11 11 L31 31 M31 11 L11 31" stroke-width="1.4"/>
+    <circle cx="21" cy="21" r="6.5" fill="#0B2C4A" stroke="none"/>
+  </g>
+  <text x="52" y="21" fill="#1E293B" font-size="15.5" font-weight="800" letter-spacing="-0.2">Royal Academy</text>
+  <text x="52" y="39" fill="#5A6B80" font-size="13" font-weight="600" letter-spacing="0.4">of Engineering</text>
+</svg>

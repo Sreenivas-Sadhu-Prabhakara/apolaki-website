@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="'Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A3E6E"/><stop offset=".55" stop-color="#08294a"/><stop offset="1" stop-color="#061b33"/>
+    </linearGradient>
+    <radialGradient id="dawn" cx="0" cy="0" r="1" gradientTransform="translate(980 60) rotate(130) scale(560)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFB81C" stop-opacity=".55"/><stop offset=".5" stop-color="#F4C94C" stop-opacity=".12"/><stop offset="1" stop-color="#F4C94C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="acc" x1="80" y1="0" x2="760" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD874"/><stop offset=".5" stop-color="#F4C94C"/><stop offset="1" stop-color="#7FB6E6"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#dawn)"/>
+  <rect x="0" y="0" width="1200" height="6" fill="url(#acc)"/>
+
+  <!-- brand lockup: real mark + wordmark -->
+  <g transform="translate(80,64)">
+    <image href="/Users/sreeni/apolaki-website/assets/logo-mark.png" x="0" y="0" width="82" height="56"/>
+    <text x="98" y="42" fill="#fff" font-size="36" font-weight="800" letter-spacing="-1">Apolaki</text>
+  </g>
+
+  <text x="80" y="220" fill="#FFC83D" font-size="22" font-weight="700" letter-spacing="6">SOLAR ENERGY MADE SIMPLE</text>
+  <text x="78" y="312" fill="#fff" font-size="76" font-weight="800" letter-spacing="-2.5">Your bill, turned into a</text>
+  <text x="78" y="396" fill="url(#acc)" font-size="76" font-weight="800" letter-spacing="-2.5">solar readiness report.</text>
+  <text x="80" y="470" fill="#AEC6E2" font-size="27" font-weight="400">See what rooftop solar will cost, save &amp; pay back —</text>
+  <text x="80" y="508" fill="#AEC6E2" font-size="27" font-weight="400">built for Filipino homes. Free to start.</text>
+
+  <g transform="translate(80,560)">
+    <rect x="0" y="0" width="232" height="40" rx="20" fill="#F4C94C"/>
+    <text x="116" y="26" text-anchor="middle" fill="#08294a" font-size="18" font-weight="800">apolaki-ph.netlify.app</text>
+    <text x="262" y="26" fill="#7E94AE" font-size="17" font-weight="500">NASA + Google Solar data · Philippines</text>
+  </g>
+</svg>

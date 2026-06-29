@@ -1,0 +1,11 @@
+# Local Netlify CLI state & plugin cache (never commit)
+.netlify
+
+# macOS / editors
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+
+# Logs / tmp
+*.log

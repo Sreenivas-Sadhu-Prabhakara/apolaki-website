@@ -1,6 +1,10 @@
 # Apolaki marketing site — static, no build step
 [build]
   publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/blog/*/"

@@ -548,6 +548,92 @@ body.menu-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .skip-link { position: absolute; left: -999px; top: 8px; z-index: 100; background: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: var(--sh-md); }
 .skip-link:focus { left: 12px; }
 
+/* ==========================================================================
+   Solar assistant chat widget (floating, site-wide)
+   ========================================================================== */
+.ap-chat-launcher {
+  position: fixed; right: clamp(16px, 3vw, 26px); bottom: clamp(16px, 3vw, 26px); z-index: 90;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 20px 13px 16px; border-radius: var(--r-pill);
+  background: var(--grad-blue); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  box-shadow: var(--sh-blue), 0 4px 12px rgba(8,41,74,.2);
+  transition: transform .3s cubic-bezier(.34,1.4,.5,1), box-shadow .3s ease, opacity .25s ease;
+}
+.ap-chat-launcher svg { width: 22px; height: 22px; }
+.ap-chat-launcher svg circle, .ap-chat-launcher svg path { animation: apSun 14s linear infinite; transform-origin: center; }
+.ap-chat-launcher:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 40px -12px rgba(15,108,189,.6); }
+.ap-chat-launcher::after { content: ""; position: absolute; top: 9px; right: 12px; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 3px var(--grad-blue), 0 0 0 3px #1a7ccb; animation: apPulse 2.4s ease-in-out infinite; }
+body.ap-chat-open .ap-chat-launcher { opacity: 0; pointer-events: none; transform: translateY(12px) scale(.9); }
+
+.ap-chat-panel {
+  position: fixed; right: clamp(16px, 3vw, 26px); bottom: clamp(16px, 3vw, 26px); z-index: 95;
+  width: min(390px, calc(100vw - 32px)); height: min(620px, calc(100vh - 120px));
+  display: flex; flex-direction: column; overflow: hidden;
+  background: #fff; border: 1px solid var(--line); border-radius: 22px;
+  box-shadow: var(--sh-lg);
+  opacity: 0; transform: translateY(24px) scale(.96); transform-origin: bottom right; pointer-events: none;
+  transition: opacity .3s ease, transform .35s cubic-bezier(.34,1.3,.5,1);
+}
+body.ap-chat-open .ap-chat-panel { opacity: 1; transform: none; pointer-events: auto; }
+
+.ap-chat-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 16px; background: var(--grad-night); color: #fff; position: relative; }
+.ap-chat-head::after { content: ""; position: absolute; inset: 0 0 auto 0; height: 100%; background: radial-gradient(70% 120% at 90% -10%, rgba(255,184,28,.30), transparent 60%); pointer-events: none; }
+.ap-chat-id { display: flex; align-items: center; gap: 11px; position: relative; z-index: 1; }
+.ap-chat-av { width: 38px; height: 38px; border-radius: 11px; background: var(--grad-gold); color: var(--blue-900); display: grid; place-items: center; flex: none; box-shadow: var(--sh-sm); }
+.ap-chat-av svg { width: 21px; height: 21px; }
+.ap-chat-name { font-family: var(--font-display); font-weight: 800; font-size: 1.06rem; letter-spacing: -0.01em; display: block; line-height: 1.1; }
+.ap-chat-sub { font-size: .78rem; color: #AEC6E2; display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+.ap-dot-live { width: 7px; height: 7px; border-radius: 50%; background: #34D399; box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: apPulse 2s infinite; }
+.ap-chat-x { width: 34px; height: 34px; border-radius: 10px; color: #fff; display: grid; place-items: center; position: relative; z-index: 1; transition: background .2s; }
+.ap-chat-x:hover { background: rgba(255,255,255,.14); }
+.ap-chat-x svg { width: 18px; height: 18px; }
+
+.ap-chat-msgs { flex: 1; overflow-y: auto; padding: 18px 16px 8px; display: flex; flex-direction: column; gap: 14px; background: var(--bg-soft); scroll-behavior: smooth; }
+.ap-chat-msgs::-webkit-scrollbar { width: 7px; }
+.ap-chat-msgs::-webkit-scrollbar-thumb { background: #cfdcea; border-radius: 4px; }
+.ap-msg { display: flex; gap: 9px; max-width: 90%; animation: apIn .35s ease; }
+.ap-msg.ap-user { align-self: flex-end; }
+.ap-msg.ap-bot { align-self: flex-start; }
+.ap-bot-av { width: 28px; height: 28px; border-radius: 8px; background: var(--gold-50); color: var(--gold-600); display: grid; place-items: center; flex: none; margin-top: 2px; }
+.ap-bot-av svg { width: 16px; height: 16px; }
+.ap-bubble { padding: 11px 14px; border-radius: 16px; font-size: .96rem; line-height: 1.5; }
+.ap-user .ap-bubble { background: var(--grad-blue); color: #fff; border-bottom-right-radius: 5px; }
+.ap-bot .ap-bubble { background: #fff; color: var(--ink-soft); border: 1px solid var(--line); border-bottom-left-radius: 5px; box-shadow: var(--sh-sm); }
+.ap-bubble strong { color: inherit; font-weight: 700; }
+.ap-bubble .ap-li { display: block; margin: 3px 0; }
+.ap-typing { display: inline-flex; gap: 4px; padding: 2px 0; }
+.ap-typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); animation: apBlink 1.3s infinite; }
+.ap-typing i:nth-child(2) { animation-delay: .2s; }
+.ap-typing i:nth-child(3) { animation-delay: .4s; }
+
+.ap-chips { display: flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; max-width: 100%; padding-left: 37px; }
+.ap-chip { font-size: .85rem; font-weight: 600; color: var(--blue-700); background: #fff; border: 1px solid var(--blue-100); padding: 8px 13px; border-radius: 999px; transition: .2s; text-align: left; }
+.ap-chip:hover { background: var(--blue-50); transform: translateY(-1px); box-shadow: var(--sh-sm); }
+
+.ap-chat-foot { border-top: 1px solid var(--line); background: #fff; padding: 12px 14px 10px; }
+.ap-chat-form { display: flex; align-items: flex-end; gap: 9px; }
+.ap-chat-input { flex: 1; font: inherit; font-size: .96rem; color: var(--ink); resize: none; border: 1.5px solid var(--line); background: var(--bg-softer); border-radius: 14px; padding: 11px 13px; max-height: 120px; transition: border-color .2s, box-shadow .2s; }
+.ap-chat-input:focus { outline: none; border-color: var(--blue); background: #fff; box-shadow: 0 0 0 3px rgba(15,108,189,.12); }
+.ap-chat-send { width: 44px; height: 44px; flex: none; border-radius: 13px; background: var(--grad-blue); color: #fff; display: grid; place-items: center; box-shadow: var(--sh-blue); transition: transform .25s ease, box-shadow .25s ease; }
+.ap-chat-send svg { width: 19px; height: 19px; }
+.ap-chat-send:hover { transform: translateY(-2px); }
+.ap-chat-send:active { transform: scale(.94); }
+.ap-chat-note { text-align: center; font-size: .72rem; color: var(--faint); margin-top: 9px; }
+
+@keyframes apSun { to { transform: rotate(360deg); } }
+@keyframes apPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,184,28,.55); } 50% { box-shadow: 0 0 0 6px rgba(255,184,28,0); } }
+@keyframes apBlink { 0%,60%,100% { opacity: .3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+@keyframes apIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 560px) {
+  .ap-chat-launcher .ap-launch-label { display: none; }
+  .ap-chat-launcher { padding: 14px; }
+  .ap-chat-panel { right: 0; left: 0; bottom: 0; width: 100%; height: 88vh; height: 88dvh; border-radius: 22px 22px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ap-chat-launcher svg circle, .ap-chat-launcher svg path, .ap-chat-launcher::after, .ap-dot-live { animation: none; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
   .feature-grid { grid-template-columns: repeat(2, 1fr); }

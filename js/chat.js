@@ -148,25 +148,25 @@
     var bubble = botMsg.querySelector(".ap-bubble");
     var answer = "";
     var gotToken = false;
+    var gotError = false;
 
     streamChat(text, function (evt) {
       if (evt.token) {
-        if (!gotToken) { gotToken = true; bubble.innerHTML = ""; }
+        if (!gotToken) { gotToken = true; gotError = false; bubble.innerHTML = ""; }
         answer += evt.token;
         bubble.innerHTML = fmt(answer);
         scroll();
-      } else if (evt.error) {
-        bubble.innerHTML = fmt(typeof evt.error === "string" && /[a-z]{4}/i.test(evt.error) && evt.error.length > 24
-          ? evt.error
-          : "Pasensya, I’m having trouble reaching the solar assistant right now. Please try again, or start your free assessment — we’ll guide you through it. ☀️");
+      } else if (evt.error && !gotToken) {
+        gotError = true;
+        bubble.innerHTML = fmt("Medyo nahihirapan akong kunin ’yan ngayon — subukan mong i-rephrase ang tanong, o simulan ang iyong libreng assessment at gagabayan ka namin. ☀️");
         scroll();
       }
     }, function (done, err) {
       busy = false;
-      if (err && !gotToken) {
-        bubble.innerHTML = fmt("Pasensya, the assistant didn’t respond just now. Please try again shortly, or reach us on the contact page.");
-      } else if (!gotToken && !answer) {
-        bubble.innerHTML = fmt("Pasensya, I didn’t catch a reply. Please try rephrasing your question. ☀️");
+      if (!gotToken && !gotError) {
+        bubble.innerHTML = fmt(err
+          ? "Pasensya, the assistant didn’t respond just now. Please try again shortly, or reach us on the contact page."
+          : "Pasensya, I didn’t catch a reply. Please try rephrasing your question. ☀️");
       }
       if (done && done.conversation_id) conversationId = done.conversation_id;
       scroll();

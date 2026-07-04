@@ -19,6 +19,8 @@
 
   var ICON = {
     chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>',
+    // two overlapping speech bubbles, solar-gold — the launcher glyph
+    bubbles: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 3.5h7A3.5 3.5 0 0 1 20.5 7v2.5a3.5 3.5 0 0 1-3.5 3.5h-.5v2.6L13.6 13" stroke="#FFD874" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 12a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3H9l-5 4z" fill="#F4C94C"/></svg>',
     sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M1.5 12H4M20 12h2.5M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>',
     send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>',
@@ -51,7 +53,7 @@
   }
 
   function build() {
-    var launcher = el("button", "ap-chat-launcher", ICON.sun + '<span class="ap-launch-label">Ask Apolaki</span>');
+    var launcher = el("button", "ap-chat-launcher", ICON.bubbles + '<span class="ap-launch-label">Ask Apolaki</span>');
     launcher.setAttribute("aria-label", "Open the Apolaki solar assistant");
     launcher.addEventListener("click", toggle);
 

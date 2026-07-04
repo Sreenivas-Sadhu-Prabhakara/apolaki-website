@@ -257,7 +257,6 @@ body.menu-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 }
 .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.04fr .96fr; gap: clamp(30px, 5vw, 64px); align-items: center; }
 .hero-copy { max-width: 600px; }
-.hero h1 { margin-top: 22px; }
 .hero h1 .accent { background: var(--grad-horizon); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero .lead { margin-top: 22px; }
 .hero .btn-row { margin-top: 32px; }

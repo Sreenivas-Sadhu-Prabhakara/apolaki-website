@@ -72,7 +72,7 @@ netlify deploy --prod --dir .
 ## Notes for maintainers
 
 - **Founder emails:** `jelegado.MIB2026B@aim.edu` is confirmed; the two other founders' addresses in `about.html` follow the same AIM pattern and should be verified.
-- **Credibility logos** (`assets/logos/`) are placeholder wordmark badges — swap for official AIM / UNLEASH / Royal Academy of Engineering assets.
+- **Credibility logos** (`assets/logos/`) are the official marks: AIM (`aim.svg`, public-domain SVG via Wikimedia Commons), Royal Academy of Engineering (`rae.svg`, Wikipedia logo SVG), and UNLEASH (`unleash.png`, monochrome ink rendering of the official mark from unleash.org). The strip caption is deliberately factual ("Our journey: built through programs at") — per the student handbook, do not use "backed"/"backed by" wording.
 - App screenshots in `assets/screens/` are from the Apolaki product.
 
 © Apolaki · VESS Corp.

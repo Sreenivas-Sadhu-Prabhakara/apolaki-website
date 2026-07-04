@@ -1,8 +1,25 @@
 /* ==========================================================================
    APOLAKI — "Daybreak" design system
    Solar Energy Made Simple. Sky-blue trust + solar-gold dawn over light canvas.
-   Display: Bricolage Grotesque · Body: Hanken Grotesk
+   Type: TT Fors (official brand font, self-hosted once licensed) with
+   Onest (Google Fonts) as the loaded fallback — see "Brand font" below.
    ========================================================================== */
+
+/* ---------- Brand font: TT Fors ----------
+   TT Fors is the official Apolaki brand font (commercial — TypeType).
+   These @font-face rules activate automatically as soon as the licensed
+   .woff2 files are dropped into /assets/fonts/ with these exact names:
+     assets/fonts/TTFors-Regular.woff2    (400)
+     assets/fonts/TTFors-Medium.woff2     (500)
+     assets/fonts/TTFors-DemiBold.woff2   (600)
+     assets/fonts/TTFors-Bold.woff2       (700)
+     assets/fonts/TTFors-ExtraBold.woff2  (800)
+   Until then the site renders in Onest (free, loaded from Google Fonts). */
+@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-DemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-ExtraBold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
 
 /* ---------- Tokens ---------- */
 :root {
@@ -65,8 +82,8 @@
   --r-pill: 999px;
 
   /* Type */
-  --font-display: "Bricolage Grotesque", "Hanken Grotesk", system-ui, sans-serif;
-  --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "TT Fors", "Onest", system-ui, sans-serif;
+  --font-body: "TT Fors", "Onest", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Layout */
   --maxw: 1180px;

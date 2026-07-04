@@ -12,7 +12,7 @@ Built by **VESS Corp.** — a venture from the Asian Institute of Management (AI
 
 Plain **static HTML + CSS + vanilla JS** — no build step, no framework. Hosted on **Netlify**.
 
-- Design system: `css/styles.css` ("Daybreak" — sky‑blue `#0F6CBD` + solar‑gold `#F4C94C`, dawn‑glow motif). Fonts: **Bricolage Grotesque** (display) + **Hanken Grotesk** (body).
+- Design system: `css/styles.css` ("Daybreak" — sky‑blue `#0F6CBD` + solar‑gold `#F4C94C`, dawn‑glow motif). Fonts: **TT Fors** (official brand font, self‑hosted once licensed) with **Onest** (Google Fonts) as the loaded fallback — see *Brand font* below.
 - Interactions: `js/main.js` (sticky nav, mobile menu, scroll‑reveal, count‑up, FAQ tabs, contact form).
 - SEO: per‑page meta/Open Graph/Twitter + JSON‑LD, `sitemap.xml`, `robots.txt`, `site.webmanifest`.
 
@@ -30,6 +30,27 @@ privacy.html            Privacy & Data Protection policy (RA 10173 / DPO)
 css/  js/  assets/       Styles, scripts, images (logo, icons, app screenshots)
 netlify.toml            Headers + redirects
 ```
+
+## Brand font (TT Fors)
+
+The official brand font is **TT Fors** (commercial, by TypeType — not bundled in this repo).
+The whole site already asks for `"TT Fors"` first and falls back to **Onest** (free, loaded
+from Google Fonts) until the licensed files are present.
+
+**To activate TT Fors:** buy the webfont license from TypeType, then drop the `.woff2`
+files into `assets/fonts/` with exactly these names — nothing else to change:
+
+```
+assets/fonts/TTFors-Regular.woff2    (weight 400)
+assets/fonts/TTFors-Medium.woff2     (weight 500)
+assets/fonts/TTFors-DemiBold.woff2   (weight 600)
+assets/fonts/TTFors-Bold.woff2       (weight 700)
+assets/fonts/TTFors-ExtraBold.woff2  (weight 800)
+```
+
+The matching `@font-face` rules are already at the top of `css/styles.css`; the browser
+switches to TT Fors automatically as soon as the files exist. Do **not** commit the font
+files to a public repo unless your license allows it.
 
 ## Develop locally
 

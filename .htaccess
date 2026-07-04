@@ -1,0 +1,36 @@
+# Apolaki marketing site — Apache config for Netfirms shared hosting.
+# Ports the behaviour of netlify.toml (which Netfirms ignores) to Apache:
+# security headers, the /blog/*/ redirect, caching, and a custom 404.
+
+Options -Indexes
+ErrorDocument 404 /404.html
+
+# ── Redirects ────────────────────────────────────────────────────────────
+# Mirror netlify.toml: /blog/<slug>/  ->  /blog/<slug>.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^blog/([^/]+)/$ /blog/$1.html [R=301,L]
+</IfModule>
+
+# ── Security & privacy headers (mirror netlify.toml) ─────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+  # NOTE: connect-src is 'self'. If the chatbot is later pointed at an external
+  # endpoint (e.g. the Netlify function), add that origin to connect-src here.
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'self'; object-src 'none'"
+</IfModule>
+
+# ── Caching (mirror netlify.toml) ────────────────────────────────────────
+<IfModule mod_headers.c>
+  # Images/fonts: cache a week (not fingerprinted, so not immutable)
+  <FilesMatch "\.(?:jpg|jpeg|png|gif|webp|svg|ico|woff2?|ttf|eot)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  # CSS/JS aren't fingerprinted — revalidate so edits go live on next deploy
+  <FilesMatch "\.(?:css|js)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>

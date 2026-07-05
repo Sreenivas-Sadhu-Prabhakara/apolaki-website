@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apolaki — Solar Savings Calculator for the Philippines</title>
-  <meta name="description" content="Enter your electricity bill and see what rooftop solar will cost, save, and pay back for your Filipino home. Free, bill-backed, built on NASA POWER and Google Solar data.">
+  <title>Apolaki — Solar Energy Made Simple | Philippines</title>
+  <meta name="description" content="Apolaki turns your electricity bill into a clear, bill-backed solar readiness report — showing what solar will cost, save, and pay back for your Filipino home. Free to start. Built on NASA POWER + Google Solar data.">
   <link rel="canonical" href="https://apolaki-ph.netlify.app/">
-  <meta name="theme-color" content="#0A0E1A">
+  <meta name="theme-color" content="#0F6CBD">
   <meta name="author" content="Apolaki · VESS Corp.">
-  <meta name="keywords" content="solar Philippines, solar savings calculator, solar panels Philippines, net metering, MERALCO solar, rooftop solar, solar payback, solar financing Philippines, solar installer">
+  <meta name="keywords" content="solar Philippines, solar panels Philippines, solar assessment, solar savings calculator, net metering Philippines, MERALCO solar, rooftop solar, solar financing Philippines, solar installer">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Apolaki">
-  <meta property="og:title" content="Apolaki — Solar Savings Calculator for the Philippines">
-  <meta property="og:description" content="Turn your electricity bill into a solar verdict. See what rooftop solar will cost, save, and pay back for your home. Free to start.">
+  <meta property="og:title" content="Apolaki — Solar Energy Made Simple">
+  <meta property="og:description" content="Turn your electricity bill into a clear, bill-backed solar readiness report. See what solar will cost, save, and pay back for your home. Free to start.">
   <meta property="og:url" content="https://apolaki-ph.netlify.app/">
   <meta property="og:image" content="https://apolaki-ph.netlify.app/assets/og-cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_PH">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Apolaki — Solar Savings Calculator for the Philippines">
-  <meta name="twitter:description" content="Turn your electricity bill into a solar verdict. Free, bill-backed, built for Filipino homes.">
+  <meta name="twitter:title" content="Apolaki — Solar Energy Made Simple">
+  <meta name="twitter:description" content="Turn your electricity bill into a clear, bill-backed solar readiness report. Free to start.">
   <meta name="twitter:image" content="https://apolaki-ph.netlify.app/assets/og-cover.png">
 
   <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="/assets/icon-512.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="preload" href="/assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/Onest-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 
   <script type="application/ld+json">
@@ -56,78 +57,28 @@
         "url": "https://apolaki-ph.netlify.app/",
         "name": "Apolaki",
         "publisher": { "@id": "https://apolaki-ph.netlify.app/#org" },
-        "inLanguage": "en-PH",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": { "@type": "EntryPoint", "urlTemplate": "https://apolaki-ph.netlify.app/blog.html?q={search_term_string}" },
-          "query-input": "required name=search_term_string"
-        }
+        "inLanguage": "en-PH"
       },
       {
-        "@type": "Service",
-        "name": "Apolaki solar readiness assessment",
-        "serviceType": "Rooftop solar assessment and installer matching",
-        "provider": { "@id": "https://apolaki-ph.netlify.app/#org" },
-        "areaServed": { "@type": "Country", "name": "Philippines" },
+        "@type": "SoftwareApplication",
+        "name": "Apolaki",
+        "applicationCategory": "Solar energy assessment",
+        "operatingSystem": "Web, iOS, Android",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PHP" },
-        "description": "A free, bill-backed solar readiness assessment for Philippine homes and small businesses — showing estimated system size, cost, savings and payback."
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Is solar worth it in the Philippines in 2026?", "acceptedAnswer": { "@type": "Answer", "text": "For most Filipino homes, yes. With grid rates high and hardware cheaper, a right-sized rooftop system commonly pays back in 3 to 5 years, then delivers years of largely free daytime power. The only number that settles it is the one on your own electricity bill, which is exactly what Apolaki works from." } },
-          { "@type": "Question", "name": "How does net metering work in the Philippines?", "acceptedAnswer": { "@type": "Answer", "text": "You export surplus daytime energy to your distribution utility, such as MERALCO, in exchange for peso credits on your bill. Under Department of Energy rules, residential and small commercial systems up to 100 kW can qualify for net metering." } },
-          { "@type": "Question", "name": "How much does a home solar system cost in the Philippines?", "acceptedAnswer": { "@type": "Answer", "text": "A useful planning figure is roughly 45,000 to 55,000 pesos per kWp installed. A typical 5 kWp Metro Manila home lands around 225,000 to 275,000 pesos. Apolaki shows an honest range with its assumptions, not a single hard quote." } },
-          { "@type": "Question", "name": "What is the payback period for solar?", "acceptedAnswer": { "@type": "Answer", "text": "Payback is commonly 3 to 5 years, depending on how much of your solar you use as you generate it. The more daytime energy you self-consume, the faster the system pays for itself." } },
-          { "@type": "Question", "name": "Will solar work on my roof?", "acceptedAnswer": { "@type": "Answer", "text": "Most sound roofs with reasonable sun exposure are suitable. Apolaki models your roof using NASA POWER and Google Solar data, and flags shading or orientation issues, so you know before an installer visits." } },
-          { "@type": "Question", "name": "Can I finance solar in the Philippines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many installers and banks offer solar loans. Apolaki reframes the upfront price as a monthly figure you can compare directly against your current electricity bill." } },
-          { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your bill and address stay private. Only anonymised rooftop metrics reach an installer, and only when you choose to connect. Apolaki is built to comply with the Philippine Data Privacy Act (RA 10173)." } }
-        ]
+        "description": "Free, bill-backed solar readiness assessment for Philippine homes and small businesses."
       }
     ]
   }
   </script>
 </head>
-<body class="home">
+<body>
 <a class="skip-link" href="#main">Skip to content</a>
-
-<!-- ============ DAWN BACKDROP (scroll signature) ============ -->
-<div class="dawn" aria-hidden="true">
-  <div class="dawn-layer dawn-night"></div>
-  <div class="dawn-layer dawn-rise"></div>
-  <div class="dawn-layer dawn-day"></div>
-  <div class="dawn-sun"></div>
-  <svg class="dawn-skyline" viewBox="0 0 1440 240" preserveAspectRatio="none" aria-hidden="true">
-    <path class="sl-fill" d="M0,240 L0,175 L70,175 L95,148 L120,175 L155,175 L155,112 L235,112 L235,150 L280,150 L280,82 L350,82 L350,132 L410,132 L410,100 L475,100 L475,162 L525,162 L560,132 L595,162 L620,162 L620,60 L695,60 L695,122 L750,122 L750,96 L830,96 L830,152 L885,152 L885,74 L960,74 L960,126 L1020,126 L1020,106 L1085,106 L1085,160 L1150,160 L1185,134 L1220,160 L1250,160 L1250,88 L1325,88 L1325,132 L1370,132 L1370,166 L1440,166 L1440,240 Z"/>
-    <g class="sl-detail">
-      <rect x="312" y="66" width="4" height="16"/>
-      <rect x="654" y="40" width="5" height="20"/>
-      <rect x="920" y="56" width="4" height="18"/>
-      <rect x="1284" y="72" width="4" height="16"/>
-      <rect x="300" y="72" width="22" height="10" rx="2"/>
-      <rect x="905" y="64" width="20" height="10" rx="2"/>
-      <rect x="1258" y="80" width="20" height="8" rx="2"/>
-    </g>
-    <g class="sl-win">
-      <rect x="296" y="96" width="7" height="9"/><rect x="312" y="96" width="7" height="9"/><rect x="328" y="96" width="7" height="9"/>
-      <rect x="296" y="116" width="7" height="9"/><rect x="328" y="116" width="7" height="9"/>
-      <rect x="636" y="76" width="8" height="10"/><rect x="656" y="76" width="8" height="10"/><rect x="676" y="76" width="8" height="10"/>
-      <rect x="636" y="98" width="8" height="10"/><rect x="676" y="98" width="8" height="10"/>
-      <rect x="901" y="90" width="7" height="9"/><rect x="918" y="90" width="7" height="9"/><rect x="935" y="90" width="7" height="9"/>
-      <rect x="901" y="110" width="7" height="9"/><rect x="935" y="110" width="7" height="9"/>
-      <rect x="1266" y="104" width="7" height="9"/><rect x="1283" y="104" width="7" height="9"/><rect x="1300" y="104" width="7" height="9"/>
-      <rect x="175" y="128" width="7" height="9"/><rect x="192" y="128" width="7" height="9"/>
-      <rect x="425" y="116" width="7" height="9"/><rect x="443" y="116" width="7" height="9"/>
-      <rect x="770" y="112" width="7" height="9"/><rect x="788" y="112" width="7" height="9"/>
-    </g>
-  </svg>
-</div>
 
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Apolaki — home">
-      <span class="mark"><img src="/assets/logo-mark.png" alt="" width="52" height="35" loading="eager" decoding="async"></span>
+      <span class="mark"><img src="/assets/logo-mark.png" alt="" width="52" height="35"></span>
       Apolaki
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Primary">
@@ -149,171 +100,241 @@
 <main id="main">
 
 <!-- ============ HERO ============ -->
-<section class="home-hero">
-  <div class="wrap">
-    <div class="hh-copy">
-      <span class="eyebrow-mono">Apolaki · the Tagalog sun god</span>
-      <h1>Your electricity bill, turned into a solar <span class="sun">verdict</span>.</h1>
-      <p class="hh-lead">For Filipino homeowners — pin your roof, drop in your monthly bill, and get an honest read on what rooftop solar will cost, save, and pay back. Free to start, backed by your real numbers.</p>
-      <div class="hh-actions">
-        <a class="btn btn-sun btn-lg" href="https://apolaki-478302.web.app/assessment">Start your free assessment
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Find <span class="accent">Trusted Solar Installers</span> Near You</h1>
+      <p class="lead">Apolaki helps Filipino homeowners find trusted solar installers, compare solar financing options, estimate electricity bill savings, and make confident decisions before investing in solar—all in one place.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="https://apolaki-478302.web.app/assessment">Start your free assessment
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-glass btn-lg" href="#how">See how it works</a>
+        <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
       </div>
-      <p class="hh-meta"><span class="tick">●</span> ₱0 to assess · no cold calls · your data stays private until you connect</p>
+      <span class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> No cost · No cold calls · Your data stays private until you connect</span>
     </div>
 
-    <div class="hh-stage">
-      <span class="hh-glow"></span>
+    <div class="hero-stage">
+      <div class="chip chip-1">
+        <span class="ic blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></span>
+        <span><span class="k">Est. annual yield</span><br><span class="v">6,594 kWh</span></span>
+      </div>
+      <div class="chip chip-2">
+        <span class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
+        <span><span class="k">CO₂ avoided / yr</span><br><span class="v">12.8 tons</span></span>
+      </div>
+      <div class="chip chip-3">
+        <span class="ic gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/><path d="M16 12h.01M3 10h18"/></svg></span>
+        <span><span class="k">Typical payback</span><br><span class="v">3–5 years</span></span>
+      </div>
       <div class="device">
-        <div class="device-screen"><img src="/assets/screens/03-results.png" alt="Apolaki assessment verdict — a ₱12,000 monthly bill replaced by a ₱3,167 solar payment, about ₱8,833 saved each month, on a recommended 5 kWp system costing ₱250,000" width="308" height="640" loading="eager" fetchpriority="high"></div>
-      </div>
-      <div class="meter-chip">
-        <span class="mc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg></span>
-        <span><span class="mc-k">You save / mo</span><br><span class="mc-v">₱8,833</span></span>
+        <div class="device-screen"><img src="/assets/screens/05-monitoring.png" alt="Apolaki app home — personalized greeting with quick actions to start a solar assessment, scout your site, browse the marketplace, explore financing, and track saved projects" width="308" height="640" loading="eager"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ AUTHORITY STRIP ============ -->
-<section class="authority">
+<!-- ============ TRUST BAR ============ -->
+<section class="trustbar reveal">
   <div class="wrap">
-    <p class="auth-data">Built on <b>NASA&nbsp;POWER</b> · <b>Google&nbsp;Solar</b> · <b>Philippine&nbsp;tariff&nbsp;data</b></p>
-    <div class="auth-progs">
-      <span class="lbl">Built through programs at</span>
-      <span class="prog-list">
-        <a href="https://www.aim.edu" rel="noopener">Asian Institute of Management</a>
-        <a href="https://unleash.org" rel="noopener">UNLEASH</a>
-        <a href="https://raeng.org.uk" rel="noopener">Royal Academy of Engineering</a>
-      </span>
+    <p class="trust-label">Our journey: built through programs at</p>
+    <div class="trust-logos">
+      <a href="https://www.aim.edu" rel="noopener" aria-label="Asian Institute of Management"><img src="/assets/logos/aim.svg" alt="Asian Institute of Management" loading="lazy"></a>
+      <a href="https://unleash.org" rel="noopener" aria-label="UNLEASH"><img src="/assets/logos/unleash.png" alt="UNLEASH global innovation" loading="lazy"></a>
+      <a href="https://raeng.org.uk" rel="noopener" aria-label="Royal Academy of Engineering"><img src="/assets/logos/rae.svg" alt="Royal Academy of Engineering" loading="lazy"></a>
     </div>
   </div>
 </section>
 
-<!-- ============ WHY SOLAR, WHY NOW ============ -->
-<section class="home-dark why" id="why">
-  <div class="wrap">
-    <div class="why-copy reveal">
-      <span class="eyebrow-mono">Why solar, why now</span>
-      <h2>The Philippine numbers finally point one way.</h2>
-      <p>Grid power keeps getting dearer while panels keep getting cheaper. That quiet crossover turned rooftop solar from a values choice into simple budget protection — for homes and small businesses alike.</p>
+<!-- ============ WHAT IS APOLAKI ============ -->
+<section class="section" id="what">
+  <div class="wrap showcase reverse">
+    <div class="showcase-text">
+      <span class="eyebrow reveal">What is Apolaki</span>
+      <h2 class="reveal d1">Why Choose Apolaki for Solar Installation in the Philippines?</h2>
+      <p class="lead reveal d1" style="margin-top:18px">Going solar is a major investment. Choosing the right solar installer is just as important as choosing solar itself. Apolaki gives you everything you need to make the right decision—from finding trusted solar installers and comparing financing options to understanding your potential savings before you commit.</p>
+      <ul class="checklist reveal d2">
+        <li><span class="ck blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span><span><strong>Verified Solar Installers</strong> Every installer is screened to help you connect with trusted solar professionals.</span></li>
+        <li><span class="ck gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></svg></span><span><strong>Independent Recommendations</strong> Get unbiased insights before talking to an installer.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span><span><strong>Personalized Assessment</strong> Every recommendation is tailored to your home and electricity usage.</span></li>
+        <li><span class="ck blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span><span><strong>Transparent Process</strong> Know your estimated savings, financing options, and what to expect before you commit.</span></li>
+      </ul>
     </div>
-    <div class="why-figs reveal d1">
-      <div class="fig">
-        <span class="l"><b>What you pay the grid</b>Blended residential rate, and still climbing</span>
-        <span class="n">₱12<span class="u">/kWh</span></span>
-      </div>
-      <div class="fig">
-        <span class="l"><b>Typical payback</b>On a right-sized home system</span>
-        <span class="n">3–5<span class="u">yrs</span></span>
-      </div>
-      <div class="fig">
-        <span class="l"><b>Net-metering ceiling</b>Export surplus for peso credits (DOE)</span>
-        <span class="n">100<span class="u">kW</span></span>
+    <div class="showcase-media media-glow reveal d1">
+      <div class="device tilt">
+        <div class="device-screen"><img src="/assets/screens/03-results.png" alt="Apolaki assessment results — a ₱12,000 monthly bill replaced by a ₱3,167 solar payment, ₱8,833 estimated monthly savings, and a recommended 5 kWp system at ₱250,000" width="308" height="640" loading="lazy"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ HORIZON TIMELINE (4 steps, sun rises across) ============ -->
-<section class="home-dark" id="how">
+<!-- ============ SERVICES / FEATURES ============ -->
+<section class="section bg-soft" id="services">
   <div class="wrap">
-    <div class="section-head reveal" style="max-width:600px">
-      <span class="eyebrow-mono">How it works</span>
-      <h2 style="margin-top:16px">Four steps, from bill to verdict.</h2>
-      <p class="hh-lead" style="margin-top:16px">The sun clears the rooftops as you go — and no installer sees your details until you decide to connect.</p>
+    <div class="section-head center reveal">
+      <span class="eyebrow center-line">What you get</span>
+      <h2>Everything you need to go Solar with confidence</h2>
+      <p class="lead">From your first solar assessment to long-term performance monitoring, Apolaki supports every step of your solar journey—all in one platform.</p>
     </div>
-    <div class="horizon-wrap reveal d1">
-      <div class="horizon-track">
-        <span class="horizon-line" aria-hidden="true"></span>
-        <span class="hz-sun s1" aria-hidden="true"></span>
-        <span class="hz-sun s2" aria-hidden="true"></span>
-        <span class="hz-sun s3" aria-hidden="true"></span>
-        <span class="hz-sun s4" aria-hidden="true"></span>
-        <div class="hz-step">
-          <span class="hz-node">1</span>
-          <div class="hz-card">
-            <span class="hz-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 5 4h14l2 6M4 10h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM9 14h6"/></svg></span>
-            <h3>Enter your bill</h3>
-            <p>Type your monthly electricity bill and pin your roof. Your estimate updates as you go.</p>
-          </div>
-        </div>
-        <div class="hz-step">
-          <span class="hz-node">2</span>
-          <div class="hz-card">
-            <span class="hz-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
-            <h3>See your potential</h3>
-            <p>Sun-hours, irradiance and expected yield for your roof — modelled from NASA and Google Solar.</p>
-          </div>
-        </div>
-        <div class="hz-step">
-          <span class="hz-node">3</span>
-          <div class="hz-card">
-            <span class="hz-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/><path d="M16 12h.01M3 10h18"/></svg></span>
-            <h3>Get your verdict</h3>
-            <p>System size, honest cost range, monthly savings and a payback estimate — every assumption shown.</p>
-          </div>
-        </div>
-        <div class="hz-step">
-          <span class="hz-node">4</span>
-          <div class="hz-card">
-            <span class="hz-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-            <h3>Connect when ready</h3>
-            <p>Hand off to a screened installer on your terms, then track real performance after install.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHAT YOU GET (daylight bento) ============ -->
-<section class="home-day">
-  <div class="wrap">
-    <div class="section-head reveal" style="max-width:600px">
-      <span class="eyebrow-mono">What you get</span>
-      <h2 style="margin-top:16px">An honest number — not a sales pitch.</h2>
-    </div>
-    <div class="getgrid">
-      <article class="get-cell get-lead reveal">
-        <div class="g-in">
-          <span class="g-fig">₱8,833<span style="font-size:.5em;color:var(--dim)"> /mo</span></span>
-          <h3>Your savings, in pesos you recognise</h3>
-          <p>We start from your real bill and your local tariff — then show what solar replaces it with, and what an installer must confirm. No brochure averages.</p>
-        </div>
+    <div class="feature-grid">
+      <article class="card card-hover feature-card reveal">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 5 3h14l2 6M4 9h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM8 13h8"/></svg></div>
+        <h3>Find Trusted Solar Installers</h3>
+        <p>Browse screened, verified solar installers in the Philippines and connect only when you're ready — no spam, no pressure.</p>
       </article>
-      <article class="get-cell reveal d1">
-        <span class="g-ic gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h3"/></svg></span>
-        <h3>Financing as a monthly figure</h3>
-        <p>See the upfront price reframed as a monthly amount you can hold up against your current bill.</p>
+      <article class="card card-hover feature-card reveal d1">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h3"/></svg></div>
+        <h3>Compare Financing Options</h3>
+        <p>See solar financing options side by side, with the upfront price reframed as a monthly amount you can compare to your bill.</p>
       </article>
-      <article class="get-cell reveal d2">
-        <span class="g-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <article class="card card-hover feature-card gold reveal d2">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/><path d="M16 12h.01M3 10h18"/></svg></div>
+        <h3>Estimate Your Costs &amp; Savings</h3>
+        <p>Get a realistic cost range, estimated electricity bill savings, and payback period — with every assumption shown.</p>
+      </article>
+      <article class="card card-hover feature-card reveal">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
+        <h3>Discover Your Solar Potential</h3>
+        <p>Pin your roof to see sunshine hours, irradiance, and expected annual yield — modelled from NASA and Google Solar data.</p>
+      </article>
+      <article class="card card-hover feature-card reveal d1">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <h3>Find the Right Solar Energy System</h3>
+        <p>Get a recommended system size in kW matched to your home and your actual electricity usage.</p>
+      </article>
+      <article class="card card-hover feature-card green reveal d2">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg></div>
+        <h3>Monitor Your Solar Performance</h3>
+        <p>Track production, savings, and CO₂ avoided in real time once your system is up and running.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLAR JOURNEY (4 steps) ============ -->
+<section class="section" id="journey">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow center-line">Your journey</span>
+      <h2>Start Your Solar Journey in Four Simple Steps</h2>
+      <p class="lead">We simplify every step of going solar—from understanding your home's solar potential to finding trusted solar installers and monitoring your system after installation.</p>
+    </div>
+    <ol class="journey-steps">
+      <li class="journey-step reveal">
+        <span class="js-num" aria-hidden="true">1</span>
+        <span class="js-connector" aria-hidden="true"></span>
+        <div class="js-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
+        <h3>Run your free solar assessment</h3>
+        <p>Pin your roof and share your electricity bill to see your home's solar potential in minutes.</p>
+      </li>
+      <li class="journey-step reveal d1">
+        <span class="js-num" aria-hidden="true">2</span>
+        <span class="js-connector" aria-hidden="true"></span>
+        <div class="js-ic gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/><path d="M16 12h.01M3 10h18"/></svg></div>
+        <h3>Compare financing options &amp; savings</h3>
+        <p>See estimated costs, electricity bill savings, and payback — with financing shown as a monthly amount.</p>
+      </li>
+      <li class="journey-step reveal d2">
+        <span class="js-num" aria-hidden="true">3</span>
+        <span class="js-connector" aria-hidden="true"></span>
+        <div class="js-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Choose a trusted installer</h3>
+        <p>Connect with screened solar installers and pick the right partner for your home — on your terms.</p>
+      </li>
+      <li class="journey-step reveal d3">
+        <span class="js-num" aria-hidden="true">4</span>
+        <span class="js-connector" aria-hidden="true"></span>
+        <div class="js-ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg></div>
+        <h3>Monitor your system's performance</h3>
+        <p>After installation, track production, savings, and CO₂ avoided in real time.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ PROCESS FLOW ============ -->
+<section class="section bg-soft" id="how">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow center-line">How it works</span>
+      <h2>From bill to readiness report in five steps</h2>
+      <p class="lead">A guided journey — most homeowners finish in a few minutes, with no installer in sight until they want one.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step reveal"><span class="flow-num"></span><span class="flow-connector"></span>
+        <div class="flow-phone"><img src="/assets/screens/01-location.png" alt="Step 1 — enter your monthly bill and city for an instant estimate" loading="lazy"></div>
+        <h4>1. Enter your numbers</h4><p>Type your monthly bill and city — your estimate updates instantly as you type.</p>
+      </div>
+      <div class="flow-step reveal d1"><span class="flow-num"></span><span class="flow-connector"></span>
+        <div class="flow-phone"><img src="/assets/screens/02-potential.png" alt="Step 2 — see your solar potential and expected yield" loading="lazy"></div>
+        <h4>2. See your potential</h4><p>Sunshine hours, irradiance and expected annual production for your roof.</p>
+      </div>
+      <div class="flow-step reveal d2"><span class="flow-num"></span><span class="flow-connector"></span>
+        <div class="flow-phone"><img src="/assets/screens/03-results.png" alt="Step 3 — get your recommended system size, cost and payback" loading="lazy"></div>
+        <h4>3. Get your numbers</h4><p>Recommended system size, honest cost range and a payback estimate.</p>
+      </div>
+      <div class="flow-step reveal d3"><span class="flow-num"></span><span class="flow-connector"></span>
+        <div class="flow-phone"><img src="/assets/screens/04-financing.png" alt="Step 4 — preview financing as a monthly payment" loading="lazy"></div>
+        <h4>4. Preview financing</h4><p>Turn the upfront price into a monthly figure you can compare to your bill.</p>
+      </div>
+      <div class="flow-step reveal d4"><span class="flow-num"></span><span class="flow-connector"></span>
+        <div class="flow-phone"><img src="/assets/screens/05-monitoring.png" alt="Step 5 — connect with an installer and monitor performance" loading="lazy"></div>
+        <h4>5. Connect &amp; monitor</h4><p>Hand off to a vetted installer when ready, then track real performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAND ============ -->
+<section class="section bg-night">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-bottom:48px">
+      <span class="eyebrow center-line on-dark">Why solar, why now</span>
+      <h2>The Philippine economics genuinely favour solar</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat reveal"><div class="num">3–5</div><div class="lbl">Years to typical payback on a right-sized home system</div></div>
+      <div class="stat reveal d1"><div class="num"><span data-count="1817" data-suffix=""></span></div><div class="lbl">Sun-hours a year on a Metro&nbsp;Manila rooftop</div></div>
+      <div class="stat reveal d2"><div class="num">100<span style="font-size:.6em">kW</span></div><div class="lbl">Net-metering ceiling for rooftop solar (DOE)</div></div>
+      <div class="stat reveal d3"><div class="num">₱0</div><div class="lbl">To assess your home — free, always, for homeowners</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST / M&V PROMISE ============ -->
+<section class="section" id="trust">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow center-line">Our promise</span>
+      <h2>Built on trust, not sales pressure</h2>
+      <p class="lead">An estimate that's trusted but wrong is worse than no tool at all. So we anchor on your real numbers, show our assumptions, and let installers confirm the figures.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="card feature-card reveal">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <h3>Private until you connect</h3>
-        <p>Your bill and address stay yours. Only anonymised rooftop metrics reach an installer, and only when you choose. Compliant with the Data Privacy Act (RA&nbsp;10173).</p>
+        <p>Your data is encrypted, and only anonymised rooftop metrics reach an installer — never until you choose to connect. Privacy is built into the architecture, compliant with the Data Privacy Act (RA 10173).</p>
       </article>
-      <article class="get-cell reveal d1">
-        <span class="g-ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg></span>
-        <h3>Real monitoring after install</h3>
-        <p>Once your system is running, track production, savings and CO₂ avoided — so the promise is measured, not assumed.</p>
+      <article class="card feature-card gold reveal d1">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Honest, assumption-shown numbers</h3>
+        <p>Every estimate explains what is known, what is assumed, and what an installer must confirm. No hidden averages — your bill and your tariff drive the result.</p>
       </article>
-      <article class="get-cell reveal d2">
-        <span class="g-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <h3>Screened installers only</h3>
-        <p>When you are ready, connect with vetted solar installers — no spam, no pressure, no premature quotes.</p>
+      <article class="card feature-card green reveal d2">
+        <div class="ic-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.6"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+        <h3>Measured &amp; verified</h3>
+        <p>Installers re-confirm the numbers against real quotes, and post-installation monitoring checks that promised savings show up. <a href="/about.html#mv" style="color:var(--blue);font-weight:600">Read our M&amp;V statement →</a></p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ RESEARCH VOICES ============ -->
-<section class="home-day" style="background:#EEF3FA">
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section bg-soft" id="voices">
   <div class="wrap">
-    <div class="section-head reveal" style="max-width:640px">
-      <span class="eyebrow-mono">What people told us</span>
-      <h2 style="margin-top:16px">The questions built the product.</h2>
-      <p style="margin-top:16px;color:#46566e;font-size:1.12rem">Apolaki grew through four public releases, each shaped by what homeowners and installers actually said.</p>
+    <div class="section-head center reveal">
+      <span class="eyebrow center-line">What people told us</span>
+      <h2>The questions built the product</h2>
+      <p class="lead">Apolaki grew through four public releases, each shaped by what homeowners and installers actually said.</p>
     </div>
     <div class="tst-grid">
       <figure class="tst reveal">
@@ -336,60 +357,52 @@
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
-<section class="home-day">
-  <div class="wrap">
-    <div class="section-head center reveal" style="margin-inline:auto">
-      <span class="eyebrow-mono" style="justify-content:center">Common questions</span>
-      <h2 style="margin-top:16px">Solar in the Philippines, answered.</h2>
+<!-- ============ ABOUT TEASER ============ -->
+<section class="section" id="about-teaser">
+  <div class="wrap showcase">
+    <div class="showcase-text">
+      <span class="eyebrow reveal">Our story</span>
+      <h2 class="reveal d1">A student venture with a simple mission</h2>
+      <p class="lead reveal d1" style="margin-top:18px">Apolaki — named for the Filipino god of the sun — was built by three founders at the Asian Institute of Management. Our mission is to make a trusted solar decision as understandable as reviewing a monthly household expense, in service of <strong>UN SDG&nbsp;7: affordable and clean energy</strong>.</p>
+      <p class="reveal d2">The word that ties us to SDG 7 is <em>affordable</em> — and we believe affordability begins with clarity.</p>
+      <div class="btn-row reveal d2" style="margin-top:28px">
+        <a class="btn btn-ghost" href="/about.html">Read our story &amp; meet the team
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
     </div>
-    <div class="faq-list">
-      <details class="faq-item reveal">
-        <summary>Is solar worth it in the Philippines in 2026?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="faq-answer"><p>For most Filipino homes, yes. With grid rates high and hardware cheaper, a right-sized rooftop system commonly pays back in 3 to 5 years, then delivers years of largely free daytime power. The one number that settles it is the one on your own electricity bill — which is exactly what Apolaki works from.</p></div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>How does net metering work in the Philippines?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="faq-answer"><p>You export surplus daytime energy to your distribution utility, such as MERALCO, in exchange for peso credits on your bill. Under Department of Energy rules, residential and small commercial systems up to 100 kW can qualify. <a href="/blog/how-net-metering-works-philippines.html">Read our net metering guide →</a></p></div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>How much does a home solar system cost?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="faq-answer"><p>A useful planning figure is roughly ₱45,000–₱55,000 per kWp installed. A typical 5 kWp Metro Manila home lands around ₱225,000–₱275,000. Apolaki shows an honest range with its assumptions, not a single hard quote. <a href="/blog/magkano-ang-solar-panel-pilipinas.html">See the full cost breakdown →</a></p></div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>What is the payback period for solar?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="faq-answer"><p>Payback is commonly 3 to 5 years, depending on how much of your solar you use as you generate it. The more daytime energy you self-consume, the faster the system pays for itself.</p></div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Will solar work on my roof?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="faq-answer"><p>Most sound roofs with reasonable sun exposure are suitable. Apolaki models your roof using NASA POWER and Google Solar data and flags shading or orientation issues, so you know before an installer visits. <a href="/blog/will-solar-work-on-my-roof.html">Check your roof suitability →</a></p></div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Can I finance solar in the Philippines?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="faq-answer"><p>Yes — many installers and banks offer solar loans. Apolaki reframes the upfront price as a monthly figure you can compare directly against your current electricity bill. <a href="/blog/solar-financing-philippines.html">Explore financing options →</a></p></div>
-      </details>
-      <details class="faq-item reveal">
-        <summary>Is my data private?<span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="faq-answer"><p>Yes. Your bill and address stay private. Only anonymised rooftop metrics reach an installer, and only when you choose to connect. Apolaki is built to comply with the Philippine Data Privacy Act (RA 10173). <a href="/privacy.html">Read our privacy policy →</a></p></div>
-      </details>
+    <div class="showcase-media reveal d1">
+      <div class="card" style="padding:0;overflow:hidden;border-radius:var(--r-xl);box-shadow:var(--sh-md)">
+        <div style="background:var(--grad-night);padding:36px 32px;color:#fff">
+          <div style="font-family:var(--font-display);font-weight:800;font-size:1.4rem;letter-spacing:-.02em">Early traction</div>
+          <p style="color:#A8C2DE;margin-top:6px;font-size:.95rem">Directional signals from our public iterations</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="padding:26px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)"><div style="font-family:var(--font-display);font-weight:800;font-size:2rem;color:var(--blue)">200+</div><div style="color:var(--muted);font-size:.92rem">interested homeowners</div></div>
+          <div style="padding:26px 28px;border-bottom:1px solid var(--line)"><div style="font-family:var(--font-display);font-weight:800;font-size:2rem;color:var(--gold-600)">4</div><div style="color:var(--muted);font-size:.92rem">public app iterations</div></div>
+          <div style="padding:26px 28px;border-right:1px solid var(--line)"><div style="font-family:var(--font-display);font-weight:800;font-size:2rem;color:var(--green)">2</div><div style="color:var(--muted);font-size:.92rem">installer partners</div></div>
+          <div style="padding:26px 28px"><div style="font-family:var(--font-display);font-weight:800;font-size:2rem;color:var(--blue)">5</div><div style="color:var(--muted);font-size:.92rem">installs in pipeline</div></div>
+        </div>
+      </div>
     </div>
-    <p style="text-align:center;margin-top:28px"><a class="btn btn-ghost" href="/faqs.html" style="background:#fff;color:var(--blue-700);box-shadow:inset 0 0 0 1.5px var(--line)">See all FAQs
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
   </div>
 </section>
 
-<!-- ============ CTA — full daylight ============ -->
-<section class="home-cta-wrap">
+<!-- ============ CTA BAND ============ -->
+<section class="section-sm">
   <div class="wrap">
-    <div class="home-cta reveal">
-      <div class="cta-in">
-        <span class="eyebrow-mono">The sun is up</span>
-        <h2>See what solar can do for your home — in minutes.</h2>
-        <p>Free, private, and built on your real numbers. Start on the web today.</p>
+    <div class="cta-band reveal">
+      <div class="inner">
+        <span class="eyebrow on-dark">Ready when you are</span>
+        <h2 style="margin-top:14px">See what solar can do for your home — in minutes.</h2>
+        <p>Free, private, and built on your real numbers. Start on the web today, or get the app.</p>
         <div class="btn-row">
-          <a class="btn btn-sun btn-lg" href="https://apolaki-478302.web.app/assessment">Start your free assessment
+          <a class="btn btn-gold btn-lg" href="https://apolaki-478302.web.app/assessment">Start your free assessment
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-outline-light btn-lg" href="/contact.html">Talk to us</a>
+        </div>
+        <div class="store-row" style="margin-top:26px">
+          <a class="store-badge soon" href="https://apolaki-478302.web.app" aria-label="Download on the App Store (coming soon)"><span class="soon-tag">Soon</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.04c-.02-2.06 1.68-3.05 1.76-3.1-0.96-1.4-2.45-1.6-2.98-1.62-1.27-.13-2.48.75-3.12.75-.64 0-1.64-.73-2.7-.71-1.39.02-2.67.81-3.38 2.05-1.44 2.5-.37 6.2 1.03 8.23.69.99 1.5 2.1 2.57 2.06 1.03-.04 1.42-.66 2.66-.66 1.24 0 1.59.66 2.68.64 1.11-.02 1.81-1.01 2.49-2.01.78-1.15 1.1-2.27 1.12-2.33-.02-.01-2.15-.83-2.17-3.27zM15.0 6.21c.56-.69.94-1.63.83-2.59-.81.03-1.81.54-2.4 1.22-.52.6-.98 1.57-.86 2.49.9.07 1.84-.46 2.43-1.12z"/></svg><span><span class="b-top">Download on the</span><span class="b-main">App Store</span></span></a>
+          <a class="store-badge soon" href="https://apolaki-478302.web.app" aria-label="Get it on Google Play (coming soon)"><span class="soon-tag">Soon</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.6 2.3zm12.5 12.5-3.1-3.1 3.1-3.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.7 1.9zM12.9 11.4 3.9 2.4c.3-.1.7 0 1.1.2l10.9 6.2-3 2.6zm0 1.2 3 2.6-10.9 6.2c-.4.2-.8.3-1.1.2l9-9z"/></svg><span><span class="b-top">Get it on</span><span class="b-main">Google Play</span></span></a>
         </div>
       </div>
     </div>
@@ -404,10 +417,10 @@
     <div class="footer-grid">
       <div>
         <a class="brand" href="/" aria-label="Apolaki — home">
-          <span class="mark"><img src="/assets/logo-mark.png" alt="" width="52" height="35" loading="lazy" decoding="async"></span>
+          <span class="mark"><img src="/assets/logo-mark.png" alt="" width="52" height="35"></span>
           Apolaki
         </a>
-        <p class="footer-about">Solar Energy Made Simple. We turn a confusing solar decision into a clear, bill-backed verdict — built for Filipino homes and the installers who serve them.</p>
+        <p class="footer-about">Solar Energy Made Simple. We turn a confusing solar decision into a clear, bill-backed readiness report — built for Filipino homes and the installers who serve them.</p>
         <div class="footer-social">
           <a href="mailto:jelegado.MIB2026B@aim.edu" aria-label="Email Apolaki"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
           <a href="https://www.linkedin.com/" rel="noopener" aria-label="Apolaki on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.34 17V10.3H6.16V17zM7.25 9.1a1.27 1.27 0 1 0 0-2.54 1.27 1.27 0 0 0 0 2.54zM18 17v-3.67c0-1.96-.42-3.47-2.71-3.47-1.1 0-1.84.6-2.14 1.18h-.03V10.3H10.9V17h2.18v-3.32c0-.87.17-1.72 1.25-1.72 1.07 0 1.08 1 1.08 1.78V17z"/></svg></a>
@@ -415,14 +428,13 @@
         </div>
       </div>
       <div>
-        <h5>Solar guides</h5>
+        <h5>Product</h5>
         <ul class="footer-links">
-          <li><a href="/blog/is-solar-worth-it-philippines-2026.html">Is solar worth it in 2026?</a></li>
-          <li><a href="/blog/how-net-metering-works-philippines.html">How net metering works</a></li>
-          <li><a href="/blog/magkano-ang-solar-panel-pilipinas.html">Magkano ang solar panel?</a></li>
-          <li><a href="/blog/solar-financing-philippines.html">Solar financing options</a></li>
-          <li><a href="/blog/will-solar-work-on-my-roof.html">Will solar work on my roof?</a></li>
-          <li><a href="/blog.html">All articles</a></li>
+          <li><a href="/#what">What is Apolaki</a></li>
+          <li><a href="/#services">For homeowners</a></li>
+          <li><a href="/contact.html?type=installer">For installers</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="https://apolaki-478302.web.app">Launch the app</a></li>
         </ul>
       </div>
       <div>
@@ -430,9 +442,9 @@
         <ul class="footer-links">
           <li><a href="/about.html">About &amp; team</a></li>
           <li><a href="/about.html#mv">M&amp;V statement</a></li>
+          <li><a href="/blog.html">Blog</a></li>
           <li><a href="/faqs.html">FAQs</a></li>
           <li><a href="/contact.html">Contact</a></li>
-          <li><a href="https://apolaki-478302.web.app/assessment">Start your assessment</a></li>
         </ul>
       </div>
       <div>
@@ -453,7 +465,6 @@
 </footer>
 
 <script src="/js/main.js" defer></script>
-<script src="/js/dawn.js" defer></script>
 <script src="/js/chat.js" defer></script>
 </body>
 </html>

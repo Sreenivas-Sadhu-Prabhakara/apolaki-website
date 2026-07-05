@@ -1,25 +1,24 @@
 /* ==========================================================================
-   APOLAKI — "Daybreak" design system
-   Solar Energy Made Simple. Sky-blue trust + solar-gold dawn over light canvas.
-   Type: TT Fors (official brand font, self-hosted once licensed) with
-   Onest (Google Fonts) as the loaded fallback — see "Brand font" below.
+   APOLAKI — "Dawn over the grid" design system
+   Apolaki = the Tagalog sun god. The product turns a Filipino household's
+   electricity bill (the night / the grid) into a solar verdict (the dawn).
+   Type: Clash Display (editorial display) · Onest (body) · IBM Plex Mono
+   (meter readouts — bill + savings figures). All self-hosted from /assets/fonts.
    ========================================================================== */
 
-/* ---------- Brand font: TT Fors ----------
-   TT Fors is the official Apolaki brand font (commercial — TypeType).
-   These @font-face rules activate automatically as soon as the licensed
-   .woff2 files are dropped into /assets/fonts/ with these exact names:
-     assets/fonts/TTFors-Regular.woff2    (400)
-     assets/fonts/TTFors-Medium.woff2     (500)
-     assets/fonts/TTFors-DemiBold.woff2   (600)
-     assets/fonts/TTFors-Bold.woff2       (700)
-     assets/fonts/TTFors-ExtraBold.woff2  (800)
-   Until then the site renders in Onest (free, loaded from Google Fonts). */
-@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-DemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: "TT Fors"; src: url("/assets/fonts/TTFors-ExtraBold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+/* ---------- Self-hosted webfonts ---------- */
+/* Display — Clash Display (oversized editorial H1/H2) */
+@font-face { font-family: "Clash Display"; src: url("/assets/fonts/ClashDisplay-Semibold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Clash Display"; src: url("/assets/fonts/ClashDisplay-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+/* Body — Onest */
+@font-face { font-family: "Onest"; src: url("/assets/fonts/Onest-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Onest"; src: url("/assets/fonts/Onest-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Onest"; src: url("/assets/fonts/Onest-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Onest"; src: url("/assets/fonts/Onest-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Onest"; src: url("/assets/fonts/Onest-800.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+/* Data / meter readouts — IBM Plex Mono */
+@font-face { font-family: "IBM Plex Mono"; src: url("/assets/fonts/IBMPlexMono-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("/assets/fonts/IBMPlexMono-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
 
 /* ---------- Tokens ---------- */
 :root {
@@ -82,8 +81,23 @@
   --r-pill: 999px;
 
   /* Type */
-  --font-display: "TT Fors", "Onest", system-ui, sans-serif;
-  --font-body: "TT Fors", "Onest", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Clash Display", "Onest", system-ui, sans-serif;
+  --font-body: "Onest", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Dawn-over-the-grid palette (landing hero + scroll signature) */
+  --night:      #0A0E1A;   /* deepest pre-dawn */
+  --night-2:    #131A2B;
+  --ink-hi:     #EAF0FF;   /* ink on dark */
+  --dim:        #A9B4CC;   /* dim ink on dark */
+  --coral:      #FF7A45;   /* sunrise gradient stop 1 */
+  --amber:      #FFB020;   /* sunrise gradient stop 2 */
+  --gold-glow:  #FFD66B;   /* sunrise gradient stop 3 — the single glow accent */
+  --day-blue:   #0F6CBD;   /* structure / brand continuity */
+  --day-blue-2: #2E6BE6;
+  --day-bg:     #F7F9FC;   /* lower-section daylight canvas */
+  --day-ink:    #0A0E1A;
+  --grad-sunrise: linear-gradient(90deg, #FF7A45 0%, #FFB020 48%, #FFD66B 100%);
 
   /* Layout */
   --maxw: 1180px;
@@ -120,14 +134,14 @@ ul { list-style: none; padding: 0; }
 /* ---------- Type ---------- */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: var(--ink);
   text-wrap: balance;
 }
-h1 { font-size: clamp(2.5rem, 6.5vw, 4.4rem); font-weight: 800; }
-h2 { font-size: clamp(1.95rem, 4.4vw, 3.05rem); }
+h1 { font-size: clamp(2.5rem, 6.5vw, 4.4rem); font-weight: 600; }
+h2 { font-size: clamp(1.95rem, 4.4vw, 3.05rem); font-weight: 600; }
 h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
 h4 { font-size: 1.15rem; letter-spacing: -0.02em; }
 p { color: var(--slate); }
@@ -713,4 +727,245 @@ body.ap-chat-open .ap-chat-panel { opacity: 1; transform: none; pointer-events: 
   .chip-2 { bottom: 19%; right: -1%; }
   .chip-3 { bottom: -1%; left: 1%; }
   .contact-wrap { grid-template-columns: 1fr !important; }
+}
+
+/* ==========================================================================
+   LANDING — "Dawn over the grid"
+   Scoped under body.home so the interior "Daybreak" pages are untouched.
+   Signature: a fixed dawn scene (sky + rising sun + Manila skyline) that
+   brightens as you scroll; the page turns from pre-dawn night into daylight.
+   ========================================================================== */
+body.home {
+  background: var(--night);
+  color: var(--ink-hi);
+}
+body.home p { color: var(--dim); }
+body.home strong { color: var(--ink-hi); }
+
+/* ---- Fixed dawn backdrop ---- */
+.dawn { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.dawn-layer { position: absolute; inset: 0; }
+.dawn-night {
+  opacity: 1;
+  background:
+    radial-gradient(125% 78% at 50% 122%, rgba(255,122,69,.34) 0%, rgba(255,176,32,.16) 13%, rgba(19,26,43,0) 46%),
+    linear-gradient(180deg, #05070F 0%, #0A0E1A 34%, #131A2B 68%, #1b2440 100%);
+}
+.dawn-rise {
+  opacity: 0;
+  background:
+    radial-gradient(135% 92% at 50% 118%, rgba(255,222,140,.95) 0%, rgba(255,122,69,.62) 17%, rgba(120,60,92,.28) 40%, rgba(20,26,50,0) 62%),
+    linear-gradient(180deg, #0e1430 0%, #24325e 38%, #6a4a6e 70%, #b0623f 100%);
+}
+.dawn-day {
+  opacity: 0;
+  background:
+    radial-gradient(120% 80% at 50% 112%, rgba(255,255,255,.7) 0%, rgba(255,214,107,.5) 18%, rgba(169,210,242,0) 52%),
+    linear-gradient(180deg, #2E6BE6 0%, #5b9fe0 46%, #a9d2f2 78%, #eaf4fc 100%);
+}
+.dawn-sun {
+  position: absolute; left: 50%; bottom: 6%;
+  width: min(50vw, 480px); aspect-ratio: 1; border-radius: 50%;
+  transform: translate(-50%, var(--sun-y, 30vh)) scale(var(--sun-s, .94));
+  opacity: var(--sun-op, .4);
+  background: radial-gradient(circle at 50% 46%, #FFF6DE 0%, #FFDE8C 20%, #FFB020 44%, rgba(255,122,69,.55) 66%, rgba(255,122,69,0) 78%);
+  box-shadow: 0 0 140px 70px rgba(255,176,32,.28);
+  will-change: transform, opacity;
+}
+.dawn-skyline {
+  position: absolute; left: 0; right: 0; bottom: 0; width: 100%;
+  height: clamp(150px, 26vh, 260px); display: block;
+}
+.dawn-skyline .sl-fill { fill: var(--skyline, #070B16); }
+.dawn-skyline .sl-win { fill: #FFC873; opacity: var(--win-op, .85); }
+.dawn-skyline .sl-detail { fill: var(--skyline, #070B16); }
+
+/* No-JS + reduced-motion: freeze a calm static pre-dawn (warm sky, sun resting
+   on the horizon behind the skyline) so hero text keeps AA contrast. */
+@media (prefers-reduced-motion: reduce) {
+  .dawn-night { opacity: .4; }
+  .dawn-rise  { opacity: 1; }
+  .dawn-sun   { --sun-y: 28vh; --sun-op: .55; --sun-s: .96; }
+  .dawn-skyline { --skyline: #1c1730; --win-op: .5; }
+}
+
+/* ---- Nav on the dark landing ---- */
+body.home .nav { background: rgba(10,14,26,.55); border-bottom-color: rgba(255,255,255,.06); }
+body.home .nav.scrolled { background: rgba(8,11,20,.82); border-bottom-color: rgba(255,255,255,.08); box-shadow: 0 10px 30px -20px #000; }
+body.home .brand { color: var(--ink-hi); }
+body.home .nav-links a { color: var(--dim); }
+body.home .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+body.home .nav-links a.active { color: #fff; }
+body.home .nav-toggle span, body.home .nav-toggle span::before, body.home .nav-toggle span::after { background: var(--ink-hi); }
+body.home .btn-ghost { background: rgba(255,255,255,.07); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.2); }
+body.home .btn-ghost:hover { background: rgba(255,255,255,.14); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.32); }
+@media (max-width: 900px) {
+  body.home .nav-links { background: #0b0f1c; border-bottom-color: rgba(255,255,255,.08); }
+  body.home .nav-links a { border-bottom-color: rgba(255,255,255,.06); }
+}
+
+/* ---- Sunrise + glass buttons (landing only) ---- */
+.btn-sun { background: var(--grad-sunrise); color: #1a0e06; box-shadow: 0 14px 40px -12px rgba(255,150,40,.6), 0 0 0 1px rgba(255,214,107,.4) inset; }
+.btn-sun:hover { transform: translateY(-3px); box-shadow: 0 22px 52px -14px rgba(255,150,40,.75), 0 0 0 1px rgba(255,214,107,.5) inset; }
+.btn-glass { background: rgba(255,255,255,.06); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.24); }
+.btn-glass:hover { background: rgba(255,255,255,.13); transform: translateY(-3px); }
+
+/* ---- Shared landing bits ---- */
+.eyebrow-mono {
+  display: inline-flex; align-items: center; gap: .6em;
+  font-family: var(--font-mono); font-weight: 500; font-size: .74rem;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--amber);
+}
+.eyebrow-mono::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--grad-sunrise); box-shadow: 0 0 12px 1px rgba(255,176,32,.7); }
+.home-day .eyebrow-mono { color: var(--day-blue); }
+.home-day .eyebrow-mono::before { box-shadow: none; }
+
+/* A dark, transparent landing section (dawn shows through) */
+.home-dark { padding-block: clamp(66px, 9vw, 120px); position: relative; z-index: 1; }
+.home-dark h1, .home-dark h2, .home-dark h3, .home-dark h4 { color: var(--ink-hi); }
+/* A daylight section (opaque near-white canvas) */
+.home-day { padding-block: clamp(66px, 9vw, 120px); position: relative; z-index: 1; background: var(--day-bg); color: var(--day-ink); }
+.home-day h1, .home-day h2, .home-day h3, .home-day h4 { color: var(--day-ink); }
+.home-day p { color: #46566e; }
+.home-day strong { color: var(--day-ink); }
+
+/* ---- HERO ---- */
+.home-hero { position: relative; z-index: 1; padding-top: clamp(36px, 7vw, 76px); padding-bottom: clamp(48px, 8vw, 96px); }
+.home-hero .wrap { display: grid; grid-template-columns: 1.06fr .94fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.hh-copy { max-width: 620px; }
+.hh-copy h1 {
+  margin-top: 20px;
+  font-size: clamp(2.6rem, 6.2vw, 4.6rem); font-weight: 600; line-height: 1.02;
+  letter-spacing: -0.025em; color: #fff;
+}
+.hh-copy h1 .sun {
+  background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 22px rgba(255,176,32,.5));
+}
+.hh-lead { margin-top: 22px; font-size: clamp(1.08rem, 1.7vw, 1.3rem); line-height: 1.55; color: #C6D0E6; max-width: 540px; }
+.hh-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.hh-meta {
+  margin-top: 22px; font-family: var(--font-mono); font-weight: 500; font-size: .82rem;
+  letter-spacing: .02em; color: var(--dim); display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.hh-meta .tick { color: #46E39B; }
+
+.hh-stage { position: relative; display: flex; justify-content: center; align-items: center; }
+.hh-stage .device { animation: float 7s ease-in-out infinite; }
+.hh-glow { position: absolute; width: 100%; height: 118%; left: 0; top: -9%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(52% 46% at 62% 40%, rgba(255,176,32,.34) 0%, rgba(255,122,69,.14) 42%, rgba(255,122,69,0) 72%); }
+.meter-chip {
+  position: absolute; bottom: 12%; left: -6%; z-index: 3;
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 17px; border-radius: 16px;
+  background: rgba(12,17,30,.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,214,107,.28); box-shadow: 0 18px 50px -18px rgba(0,0,0,.7);
+}
+.meter-chip .mc-ic { width: 40px; height: 40px; border-radius: 11px; flex: none; display: grid; place-items: center; background: var(--grad-sunrise); color: #1a0e06; }
+.meter-chip .mc-ic svg { width: 21px; height: 21px; }
+.meter-chip .mc-k { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.meter-chip .mc-v { font-family: var(--font-mono); font-weight: 600; font-size: 1.32rem; color: #fff; line-height: 1.05; letter-spacing: -0.01em; }
+
+/* ---- AUTHORITY strip ---- */
+.authority { position: relative; z-index: 1; padding-block: clamp(26px, 4vw, 40px); border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); background: rgba(8,11,20,.35); }
+.authority .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px 40px; }
+.auth-data { font-family: var(--font-mono); font-size: .82rem; letter-spacing: .04em; color: var(--dim); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+.auth-data b { color: var(--gold-glow); font-weight: 600; }
+.auth-progs { display: flex; align-items: center; gap: clamp(18px, 3vw, 34px); flex-wrap: wrap; }
+.auth-progs .lbl { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); }
+.auth-progs .prog-list { display: inline-flex; flex-wrap: wrap; align-items: center; }
+.auth-progs .prog-list a { font-family: var(--font-mono); font-weight: 500; font-size: .8rem; letter-spacing: .03em; color: var(--dim); transition: color .2s; }
+.auth-progs .prog-list a:hover { color: var(--gold-glow); }
+.auth-progs .prog-list a:not(:last-child)::after { content: "·"; color: var(--faint); margin: 0 12px; }
+
+/* ---- WHY solar, why now — asymmetric split, big mono figures ---- */
+.why .wrap { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(34px, 6vw, 72px); align-items: center; }
+.why-copy { max-width: 460px; }
+.why-copy h2 { margin-top: 18px; }
+.why-copy p { margin-top: 18px; color: #C6D0E6; }
+.why-figs { display: grid; gap: 0; border-top: 1px solid rgba(255,255,255,.12); }
+.fig { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: baseline; gap: 18px; padding: 22px 4px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.fig .n { font-family: var(--font-mono); font-weight: 600; font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1; letter-spacing: -0.03em;
+  background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; white-space: nowrap; }
+.fig .n .u { font-size: .42em; letter-spacing: 0; -webkit-text-fill-color: var(--dim); color: var(--dim); }
+.fig .l { color: #B7C2DA; font-size: 1rem; line-height: 1.4; }
+.fig .l b { color: #fff; font-weight: 600; display: block; margin-bottom: 2px; }
+
+/* ---- HORIZON timeline — sun rises across the 4 steps ---- */
+.horizon-wrap { position: relative; z-index: 1; margin-top: clamp(40px, 6vw, 64px); }
+.horizon-track { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2.4vw, 30px); padding-top: 92px; }
+.horizon-line { position: absolute; top: 78px; left: 6%; right: 6%; height: 2px;
+  background: linear-gradient(90deg, rgba(255,122,69,.25), rgba(255,176,32,.85) 55%, rgba(255,214,107,1)); border-radius: 2px; }
+.horizon-line::after { content: ""; position: absolute; inset: -1px 0; filter: blur(6px); background: inherit; opacity: .7; }
+.hz-sun { position: absolute; top: 78px; width: 34px; height: 34px; border-radius: 50%; transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 50% 45%, #FFF6DE 0%, #FFCE6A 45%, #FF9A3D 100%); box-shadow: 0 0 26px 8px rgba(255,176,32,.6); }
+.hz-sun.s1 { left: 12.5%; opacity: .55; transform: translate(-50%, -35%) scale(.8); }
+.hz-sun.s2 { left: 37.5%; opacity: .8; transform: translate(-50%, -60%) scale(.92); }
+.hz-sun.s3 { left: 62.5%; opacity: 1; transform: translate(-50%, -95%) scale(1); }
+.hz-sun.s4 { left: 87.5%; opacity: 1; transform: translate(-50%, -135%) scale(1.12); }
+.hz-step { position: relative; }
+.hz-step .hz-node { position: absolute; top: -92px; left: 50%; transform: translateX(-50%);
+  width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--font-mono); font-weight: 600; font-size: 1rem; color: #1a0e06;
+  background: var(--grad-sunrise); box-shadow: 0 6px 18px -4px rgba(255,150,40,.6); border: 3px solid var(--night); }
+.hz-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r-lg);
+  padding: 26px 24px 24px; transition: transform .3s ease, border-color .3s ease, background .3s ease; height: 100%; }
+.hz-card:hover { transform: translateY(-5px); border-color: rgba(255,214,107,.4); background: rgba(255,255,255,.07); }
+.hz-card .hz-ic { color: var(--gold-glow); margin-bottom: 14px; }
+.hz-card .hz-ic svg { width: 26px; height: 26px; }
+.hz-card h3 { color: #fff; font-size: 1.14rem; margin-bottom: 8px; }
+.hz-card p { color: var(--dim); font-size: .95rem; }
+
+/* ---- WHAT YOU GET — restrained editorial bento (daylight) ---- */
+.getgrid { display: grid; grid-template-columns: 1.25fr 1fr; grid-auto-rows: 1fr; gap: clamp(16px, 2vw, 24px); }
+.get-cell { border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(24px, 2.6vw, 34px); background: #fff; box-shadow: var(--sh-sm); display: flex; flex-direction: column; }
+.get-cell.wide { grid-column: span 1; }
+.get-lead { grid-row: span 2; background: linear-gradient(165deg, #0A0E1A 0%, #131A2B 60%, #0A3E6E 100%); color: #fff; border: 0; position: relative; overflow: hidden; }
+.get-lead::after { content: ""; position: absolute; inset: -30% -10% auto auto; width: 70%; height: 150%; background: radial-gradient(50% 50% at 75% 25%, rgba(255,176,32,.4), transparent 65%); }
+.get-lead .g-in { position: relative; z-index: 1; margin-top: auto; }
+.get-lead h3 { color: #fff; font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+.get-lead p { color: #B7C2DA; margin-top: 10px; }
+.get-lead .g-fig { font-family: var(--font-mono); font-weight: 600; font-size: 2.4rem; letter-spacing: -0.02em;
+  background: var(--grad-sunrise); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.get-cell .g-ic { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 16px; background: var(--blue-50); color: var(--blue); }
+.get-cell .g-ic.gold { background: var(--gold-50); color: var(--gold-600); }
+.get-cell .g-ic.green { background: var(--green-50); color: var(--green); }
+.get-cell .g-ic svg { width: 25px; height: 25px; }
+.get-cell h3 { font-size: 1.16rem; margin-bottom: 8px; }
+.get-cell p { font-size: .96rem; }
+
+/* ---- CTA — full daylight band ---- */
+.home-cta-wrap { position: relative; z-index: 1; padding-block: clamp(52px, 7vw, 96px); background: var(--day-bg); }
+.home-cta { position: relative; overflow: hidden; border-radius: clamp(24px, 4vw, 40px); padding: clamp(44px, 6vw, 76px);
+  background: linear-gradient(120deg, #0F6CBD 0%, #2E6BE6 46%, #58a0ef 100%); color: #fff; text-align: center; }
+.home-cta::before { content: ""; position: absolute; inset: -40% auto auto -10%; width: 60%; height: 180%;
+  background: radial-gradient(50% 50% at 30% 30%, rgba(255,214,107,.85) 0%, rgba(255,176,32,0) 62%); }
+.home-cta::after { content: ""; position: absolute; right: -60px; top: -60px; width: 260px; height: 260px; border-radius: 50%;
+  background: radial-gradient(circle, #FFE39A 0%, #FFB020 40%, rgba(255,176,32,0) 72%); }
+.home-cta .cta-in { position: relative; z-index: 1; max-width: 680px; margin-inline: auto; }
+.home-cta .eyebrow-mono { color: #FFE7B0; justify-content: center; }
+.home-cta .eyebrow-mono::before { box-shadow: 0 0 12px 1px rgba(255,214,107,.8); }
+.home-cta h2 { color: #fff; margin-top: 12px; }
+.home-cta p { color: #E3EEFB; margin-top: 16px; font-size: 1.12rem; }
+.home-cta .btn-row { margin-top: 30px; justify-content: center; }
+
+/* ---- Landing responsive ---- */
+@media (max-width: 920px) {
+  .home-hero .wrap { grid-template-columns: 1fr; gap: 44px; }
+  .hh-stage { order: -1; }
+  .why .wrap { grid-template-columns: 1fr; gap: 36px; }
+  .horizon-track { grid-template-columns: repeat(2, 1fr); gap: 54px 20px; padding-top: 0; }
+  .horizon-line, .hz-sun { display: none; }
+  .hz-step .hz-node { position: static; transform: none; margin-bottom: 16px; }
+  .getgrid { grid-template-columns: 1fr 1fr; }
+  .get-lead { grid-column: 1 / -1; grid-row: auto; }
+}
+@media (max-width: 600px) {
+  .authority .wrap { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .horizon-track { grid-template-columns: 1fr; gap: 34px; }
+  .getgrid { grid-template-columns: 1fr; }
+  .hh-actions .btn { width: 100%; }
+  .meter-chip { display: none; }
+  .fig { grid-template-columns: 1fr; gap: 6px; }
+  .fig .n { font-size: 2.6rem; }
 }

@@ -147,7 +147,7 @@
       <div class="form-card reveal d1">
         <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-ajax="true">
           <input type="hidden" name="form-name" value="contact">
-          <p class="sr-only"><label>Do not fill: <input name="bot-field"></label></p>
+          <p class="sr-only" aria-hidden="true" hidden><label>Leave this field empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
           <div class="field-row">
             <div class="field">

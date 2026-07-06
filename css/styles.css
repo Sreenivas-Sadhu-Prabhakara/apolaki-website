@@ -714,3 +714,13 @@ body.ap-chat-open .ap-chat-panel { opacity: 1; transform: none; pointer-events: 
   .chip-3 { bottom: -1%; left: 1%; }
   .contact-wrap { grid-template-columns: 1fr !important; }
 }
+
+/* Related articles — in-body SEO interlinking (Daybreak tokens) */
+.related-reads{padding-top:0}
+.related-reads>h2{font-size:clamp(1.15rem,2vw,1.4rem);color:var(--ink);margin:0 0 16px}
+.related-grid2{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.related-card{display:flex;flex-direction:column;gap:6px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:#fff;text-decoration:none;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.related-card:hover{transform:translateY(-3px);box-shadow:var(--sh-blue);border-color:var(--blue-100)}
+.related-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.related-card .rc-cat{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
+.related-card .rc-title{font-weight:700;color:var(--ink);line-height:1.35}

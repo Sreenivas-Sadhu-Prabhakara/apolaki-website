@@ -54,7 +54,7 @@
 
   function build() {
     var launcher = el("button", "ap-chat-launcher", ICON.bubbles + '<span class="ap-launch-label">Ask Apolaki</span>');
-    launcher.setAttribute("aria-label", "Open the Apolaki solar assistant");
+    launcher.setAttribute("aria-label", "Ask Apolaki — open the solar assistant");
     launcher.addEventListener("click", toggle);
 
     var panel = el("section", "ap-chat-panel", "");

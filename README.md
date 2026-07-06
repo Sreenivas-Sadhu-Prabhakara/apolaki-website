@@ -1,8 +1,8 @@
 # Apolaki — marketing website
 
-**Solar Energy Made Simple.** The public marketing site for [Apolaki](https://apolaki-ph.netlify.app) — a digital solar **readiness** and partner‑matching platform that helps Filipino homeowners and small businesses make confident solar decisions, and gives installers leads worth acting on.
+**Solar Energy Made Simple.** The public marketing site for [Apolaki](https://apolaki.ai) — a digital solar **readiness** and partner‑matching platform that helps Filipino homeowners and small businesses make confident solar decisions, and gives installers leads worth acting on.
 
-🌐 **Live:** https://apolaki-ph.netlify.app
+🌐 **Live:** https://apolaki.ai
 
 Built by **VESS Corp.** — a venture from the Asian Institute of Management (AIM).
 

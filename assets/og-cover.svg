@@ -26,7 +26,7 @@
 
   <g transform="translate(80,560)">
     <rect x="0" y="0" width="232" height="40" rx="20" fill="#F4C94C"/>
-    <text x="116" y="26" text-anchor="middle" fill="#08294a" font-size="18" font-weight="800">apolaki-ph.netlify.app</text>
+    <text x="116" y="26" text-anchor="middle" fill="#08294a" font-size="18" font-weight="800">apolaki.ai</text>
     <text x="262" y="26" fill="#7E94AE" font-size="17" font-weight="500">NASA + Google Solar data · Philippines</text>
   </g>
 </svg>

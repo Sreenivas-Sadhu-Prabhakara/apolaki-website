@@ -6,6 +6,14 @@
 [functions]
   node_bundler = "esbuild"
 
+# Canonicalize the host: 301 the raw Netlify subdomain to the primary domain
+# (prevents apolaki-ph.netlify.app from serving duplicate content vs apolaki.ai)
+[[redirects]]
+  from = "https://apolaki-ph.netlify.app/*"
+  to = "https://apolaki.ai/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/blog/*/"
   to = "/blog/:splat.html"

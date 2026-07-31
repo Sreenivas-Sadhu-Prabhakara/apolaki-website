@@ -24,8 +24,23 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const NO_NET = process.argv.includes("--no-net");
 
 let failures = 0;
+let warnings = 0;
 const fail = (msg) => { failures++; console.error(`  ✗ ${msg}`); };
+const warn = (msg) => { warnings++; console.log(`  ! ${msg}`); };
 const pass = (msg) => console.log(`  ✓ ${msg}`);
+
+// Hosts that refuse automated fetchers but serve humans perfectly well. A 403
+// or 400 from these is a bot policy, not a dead link, so they are reported as
+// warnings rather than failures.
+//
+// Keep this list SHORT and justified. It is the one mechanism in this file
+// capable of hiding a genuinely broken citation, so every entry must have been
+// opened in a real browser first. A 404 is never listed here.
+const BOT_BLOCKED = new Map([
+  ["privacy.gov.ph", "National Privacy Commission — 403s non-browser user agents"],
+  ["www.erc.gov.ph", "Energy Regulatory Commission — 403s non-browser user agents"],
+  ["www.facebook.com", "Facebook returns 400 to unauthenticated fetches"],
+]);
 
 /* ---------------------------------------------------------------- helpers */
 
@@ -144,12 +159,28 @@ async function checkLinks() {
   console.log(`  checking ${urls.length} distinct URLs…`);
 
   const results = await Promise.all(urls.map((url) => probe(url)));
+  let blocked = 0;
   for (const r of results) {
-    if (!r.ok) fail(`${r.url} → ${r.status} (in ${[...all.get(r.url)].join(", ")})`);
+    if (r.ok) continue;
+    const where = [...all.get(r.url)];
+    const inFiles = where.length > 3 ? `${where.slice(0, 3).join(", ")} +${where.length - 3} more` : where.join(", ");
+    let host = "";
+    try { host = new URL(r.url).host; } catch { /* unparseable URL is a real failure */ }
+    const note = BOT_BLOCKED.get(host);
+    // A 404 means gone, whatever the host policy is — never excuse it.
+    if (note && r.status !== 404) {
+      blocked++;
+      warn(`${r.url} → ${r.status} — ${note} (in ${inFiles})`);
+    } else {
+      fail(`${r.url} → ${r.status} (in ${inFiles})`);
+    }
   }
   const okCount = results.filter((r) => r.ok).length;
-  if (okCount === results.length) pass(`all ${okCount} URLs reachable`);
-  else console.log(`  ${okCount}/${results.length} reachable`);
+  if (okCount + blocked === results.length) {
+    pass(`all ${results.length} URLs reachable${blocked ? ` (${blocked} bot-blocked but live)` : ""}`);
+  } else {
+    console.log(`  ${okCount}/${results.length} reachable, ${blocked} bot-blocked`);
+  }
 }
 
 async function probe(url) {
@@ -207,5 +238,6 @@ await checkFaqSchema();
 await checkMisc();
 await checkLinks();
 
-console.log(failures ? `\n${failures} check(s) failed.` : "\nAll checks passed.");
+const suffix = warnings ? ` (${warnings} warning${warnings > 1 ? "s" : ""})` : "";
+console.log(failures ? `\n${failures} check(s) failed${suffix}.` : `\nAll checks passed${suffix}.`);
 process.exit(failures ? 1 : 0);

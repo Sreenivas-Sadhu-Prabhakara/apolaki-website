@@ -99,23 +99,35 @@ changes, so apolaki.ai cannot be affected by this.
 
 ---
 
-## Locking the tunnel down
+## Locking the tunnel down — do this before the tunnel is public
 
-`assistant.apolaki.ai` is a public hostname, and `llm-slm` runs with an empty
-`JWT_SECRET`, which its `authMiddleware` treats as *permissive dev auth*
-(`internal/httpapi/auth.go:39`). Left open, anyone who finds the hostname gets
-free use of your GPU.
+Creating the tunnel publishes a hostname, and hostnames are discoverable (new
+certificates appear in public Certificate Transparency logs within minutes).
+Access control therefore has to come from a policy in front of the tunnel, never
+from the hostname being hard to guess.
 
-Put a Cloudflare Access **service token** in front of the tunnel and give the
-proxy the credentials. `_shared/chat-core.mjs` already sends them when present:
+**Put a Cloudflare Access policy with a service token in front of
+`assistant.apolaki.ai` before you route any traffic to it.** Then set the token
+on both hosts; `_shared/chat-core.mjs` forwards the pair automatically:
 
 | Variable | Where |
 |---|---|
 | `CF_ACCESS_CLIENT_ID` | Netlify + Cloudflare Pages env |
 | `CF_ACCESS_CLIENT_SECRET` | Netlify + Cloudflare Pages env |
 
-They are optional purely so the chain can be proven end-to-end first. Treat
-shipping without them as a temporary state, not a resting one.
+Verify the policy is actually doing its job — an unauthenticated request must be
+refused:
+
+```bash
+# expect 403 and an Access login page, NOT a model reply
+curl -s -o /dev/null -w '%{http_code}\n' -X POST https://assistant.apolaki.ai/assistant/chat \
+  -H 'Content-Type: application/json' -d '{"message":"test"}'
+```
+
+Also review the service's own auth configuration before exposing it, rather than
+relying on the tunnel alone. Check what `JWT_SECRET` is set to in the
+environment you actually run, and confirm the behaviour matches your
+expectations — `internal/httpapi/auth.go` is the file that decides.
 
 ---
 

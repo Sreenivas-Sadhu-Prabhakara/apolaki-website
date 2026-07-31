@@ -138,16 +138,25 @@ export async function handleHealth(request, env) {
       headers: upstreamHeaders(env),
       signal: abort.signal,
     });
-    clearTimeout(timer);
-    if (!res.ok) return healthJson(false, "unhealthy");
+    if (!res.ok) {
+      clearTimeout(timer);
+      return healthJson(false, "unhealthy");
+    }
     // llm-slm answers {"status":"ok"} — or {"status":"db_unreachable"} with a
     // 503, which res.ok already caught. Parse defensively regardless.
+    //
+    // The timer is deliberately still armed here: fetch() resolves on response
+    // HEADERS, so a machine that answers and then stalls mid-body would hang
+    // this function indefinitely if the abort were cleared above. Keep the
+    // whole probe — headers and body — inside the 4s budget.
     let payload = {};
     try {
       payload = await res.json();
     } catch {
+      clearTimeout(timer);
       return healthJson(false, "unparseable");
     }
+    clearTimeout(timer);
     return healthJson(payload && payload.status === "ok", (payload && payload.status) || "unknown");
   } catch {
     clearTimeout(timer);

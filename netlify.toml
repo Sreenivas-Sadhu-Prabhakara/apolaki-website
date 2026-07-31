@@ -19,16 +19,59 @@
   to = "/blog/:splat.html"
   status = 301
 
-# `publish = "."` serves the whole repo root, which means the function sources
-# under netlify/functions/ are readable over HTTP (confirmed: /netlify/functions/
-# chat.mjs returned 200 before this rule). They hold no secrets — credentials are
-# env vars — but there is no reason to publish server-side source, and _shared/
-# would be exposed the same way. Note the leading slash is literal: Netlify's own
-# runtime paths live under /.netlify/ and are unaffected.
+# `publish = "."` uploads the whole repo root, so every non-dotfile is served:
+# function sources, the ops runbook, build tooling. Confirmed live before these
+# rules existed — /netlify/functions/chat.mjs returned 200.
+#
+# `force = true` is REQUIRED and is the whole point. Netlify's redirect engine
+# shadows an unforced rule whenever a real file exists at that path — which is
+# exactly the set of paths these rules target, so without force they are no-ops
+# that quietly do nothing. This was caught in review after being written
+# unforced the first time.
+#
+# The leading slash is literal: Netlify's own runtime lives under /.netlify/
+# (leading dot) and is not matched here, so /api/chat and /api/visits are
+# unaffected.
+#
+# This is a blocklist, which means it has to be extended whenever a new
+# non-public directory is added. The durable fix is to publish from a staged
+# directory instead of the repo root — see docs/superpowers/specs/.
 [[redirects]]
   from = "/netlify/*"
   to = "/404.html"
   status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tools/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Cloudflare Pages adapters. Harmless in themselves, but no reason to publish.
+[[redirects]]
+  from = "/functions/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404.html"
+  status = 404
+  force = true
 
 # Security + privacy headers
 [[headers]]

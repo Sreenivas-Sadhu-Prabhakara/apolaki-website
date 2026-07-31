@@ -147,10 +147,29 @@ and LLM crawlers; it is not being added for a snippet that will not appear.
 
 ## Security and SEO side-effects
 
-- `netlify/functions/*` was **publicly readable** (`/netlify/functions/chat.mjs`
-  returned 200). A `netlify.toml` redirect now 404s `/netlify/*`. No secrets
-  were exposed — credentials are env vars — but server source should not be
-  published, and `_shared/` would have been exposed the same way.
+- `publish = "."` uploads the **entire repo root** to the CDN. Confirmed live:
+  `/netlify/functions/chat.mjs` returned 200. That also meant `docs/`, `tools/`,
+  `functions/` and `package*.json` would ship — including
+  `docs/assistant-runbook.md`, which describes the tunnel and its auth posture.
+  All are now blocked by **forced** 404 redirects, mirrored in
+  `functions/_middleware.js` for staging and in `robots.txt`.
+
+  Two lessons worth keeping, both found in adversarial review rather than by
+  writing the rule:
+
+  1. **`force = true` is mandatory.** Netlify shadows an unforced redirect
+     whenever a real file exists at that path — precisely the paths these rules
+     target. The first version of this rule was unforced and did nothing while
+     appearing to fix the problem.
+  2. **A blocklist is the weaker design.** It must be extended for every new
+     non-public directory. The durable fix is to publish from a staged
+     directory (`publish = "site"`) so server-side files are never uploaded at
+     all. That is a repo-wide move of ~40 HTML files and is deliberately left
+     as a follow-up rather than bundled into a change awaiting approval.
+
+  The runbook was also rewritten so that it does not read as a roadmap: access
+  control is stated as a prerequisite with a verification command, rather than
+  documenting an open endpoint as a tolerable interim state.
 - Staging serves a byte-identical copy of an indexed site. It gets
   `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet` plus Cloudflare
   Access.

@@ -146,6 +146,50 @@
     applyLang(savedLang === 'tl' ? 'tl' : 'en');
   }
 
+  /* Viber launcher
+     A second way to reach us that depends on nothing we run — when the solar
+     assistant is asleep, this is still there. It renders immediately rather
+     than waiting on any health check, and CSS raises it clear of the chat
+     button only if that button actually appears (body.ap-chat-on).
+
+     Fail-closed by design: an unset or malformed number renders NOTHING. A
+     dead "Viber us" button is worse than no button, and this guarantees a
+     placeholder can never reach production. */
+
+  // TODO(human): supply the Viber destination and the button copy.
+  var VIBER = {
+    // E.164 format, digits only after the "+". Philippine mobiles look like
+    // '+639171234567'. Leave empty and the button simply does not render.
+    number: '',
+    // Shown beside the icon on desktop; hidden on phones, where the button
+    // collapses to the icon alone.
+    label: ''
+  };
+
+  var viberNumber = String(VIBER.number || '').replace(/[\s()\-]/g, '');
+  var viberLabel = String(VIBER.label || '').trim();
+
+  if (/^\+[1-9]\d{7,14}$/.test(viberNumber) && viberLabel) {
+    var viberIcon =
+      '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+      '<path fill="currentColor" d="M12 2.1c-5 0-9 3.4-9 7.9 0 2.5 1.2 4.8 3.2 6.3v3.9c0 .5.5.7.9.4l3.1-2.4c.6.1 1.2.1 1.8.1 5 0 9-3.4 9-7.9s-4-8.3-9-8.3Z"/>' +
+      '<path fill="#5B4CDB" d="M9.5 7.2c.35-.12.73.02.93.34l.83 1.36c.2.33.14.75-.15.99l-.5.42a.28.28 0 0 0-.07.35c.47.89 1.2 1.6 2.13 2.02.12.06.27.02.35-.09l.4-.5c.23-.29.63-.38.95-.2l1.42.79c.33.18.48.57.36.92-.28.83-1.09 1.36-1.96 1.28-2.72-.26-4.87-2.34-5.2-5.02-.1-.85.44-1.63 1.26-1.87Z"/>' +
+      '</svg>';
+
+    var viberBtn = document.createElement('a');
+    viberBtn.className = 'ap-viber-launcher';
+    viberBtn.href = 'viber://chat?number=' + encodeURIComponent(viberNumber);
+    viberBtn.rel = 'noopener';
+    // The number goes in the accessible name and the tooltip on purpose: if
+    // Viber is not installed the deep link does nothing at all, so the number
+    // has to be readable by a human who can then save it by hand.
+    viberBtn.setAttribute('aria-label', 'Message Apolaki on Viber at ' + viberNumber);
+    viberBtn.title = 'Viber: ' + viberNumber;
+    viberBtn.innerHTML = viberIcon + '<span class="ap-launch-label"></span>';
+    viberBtn.querySelector('.ap-launch-label').textContent = viberLabel;
+    document.body.appendChild(viberBtn);
+  }
+
   /* current year */
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();

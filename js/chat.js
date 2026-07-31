@@ -80,6 +80,12 @@
     document.body.appendChild(launcher);
     document.body.appendChild(panel);
 
+    /* Tells the stylesheet a chat launcher now occupies the bottom-right slot,
+       so the Viber button raises itself clear of it. Set here rather than in
+       gate() on purpose: it must reflect the button actually existing, not the
+       health check merely having passed. */
+    document.body.classList.add("ap-chat-on");
+
     els.launcher = launcher;
     els.panel = panel;
     els.msgs = panel.querySelector("#apMsgs");

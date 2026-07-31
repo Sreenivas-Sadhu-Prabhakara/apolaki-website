@@ -218,7 +218,34 @@
       .catch(function () { clearTimeout(timer); onDone(null, true); });
   }
 
+  /* Health gate.
+     The assistant is self-hosted on a workstation, so it is legitimately
+     offline sometimes. A prominent "Ask Apolaki" button that apologises when
+     clicked serves a visitor worse than no button at all, so nothing is
+     injected into the page until /api/chat-health confirms the assistant is
+     actually answering. The endpoint is edge-cached for a minute, so this
+     costs one cheap request per visit and recovers within a minute of the
+     machine waking up.
+
+     Failing closed is deliberate: if the check itself errors, we show nothing
+     rather than risk a broken widget. */
+  function gate() {
+    if (!window.fetch) return;
+    var abort = null, timer = null;
+    if (window.AbortController) {
+      abort = new AbortController();
+      timer = setTimeout(function () { abort.abort(); }, 5000);
+    }
+    fetch("/api/chat-health", { cache: "no-store", signal: abort ? abort.signal : undefined })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (h) {
+        if (timer) clearTimeout(timer);
+        if (h && h.ok === true) build();
+      })
+      .catch(function () { if (timer) clearTimeout(timer); });
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", build);
-  } else { build(); }
+    document.addEventListener("DOMContentLoaded", gate);
+  } else { gate(); }
 })();

@@ -1,6 +1,9 @@
 # Local Netlify CLI state & plugin cache (never commit)
 .netlify
 
+# Function dependencies (@netlify/blobs). Installed by CI before deploy.
+node_modules/
+
 # macOS / editors
 .DS_Store
 **/.DS_Store

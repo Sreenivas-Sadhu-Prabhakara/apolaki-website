@@ -43,6 +43,7 @@
 
   /* count-up numbers */
   function animateCount(el) {
+    el.__apCounted = true;
     var target = parseFloat(el.getAttribute('data-count'));
     var dec = (el.getAttribute('data-dec') || '0') | 0;
     var prefix = el.getAttribute('data-prefix') || '';
@@ -69,6 +70,37 @@
     counters.forEach(function (el) { co.observe(el); });
   } else {
     counters.forEach(function (el) { el.textContent = (el.getAttribute('data-prefix') || '') + el.getAttribute('data-count') + (el.getAttribute('data-suffix') || ''); });
+  }
+
+  /* visitor counter
+     The tile ships with a floor value in the HTML so it reads correctly with
+     no JS and when the API is unreachable. Here we replace data-count with the
+     live figure; because animateCount() reads the attribute at animation time,
+     a fetch that lands before the tile scrolls into view needs no extra work.
+     POST registers the visit once per browser session; later page views read. */
+  var visitEls = document.querySelectorAll('[data-visitors]');
+  if (visitEls.length && window.fetch) {
+    var SEEN_KEY = 'ap_visit_counted';
+    var alreadyCounted = false;
+    try { alreadyCounted = sessionStorage.getItem(SEEN_KEY) === '1'; } catch (e) { /* private mode */ }
+
+    fetch('/api/visits', { method: alreadyCounted ? 'GET' : 'POST', cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || typeof data.count !== 'number' || !isFinite(data.count)) return;
+        try { sessionStorage.setItem(SEEN_KEY, '1'); } catch (e) { /* private mode */ }
+        visitEls.forEach(function (el) {
+          el.setAttribute('data-count', String(data.count));
+          /* Already scrolled past and animated? Re-running the count-up would
+             restart from zero and read as a glitch, so correct it in place. */
+          if (el.__apCounted) {
+            el.textContent = (el.getAttribute('data-prefix') || '') +
+              data.count.toLocaleString() +
+              (el.getAttribute('data-suffix') || '');
+          }
+        });
+      })
+      .catch(function () { /* leave the floor value in place */ });
   }
 
   /* FAQ tab groups */

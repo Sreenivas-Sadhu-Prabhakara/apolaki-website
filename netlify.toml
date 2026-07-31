@@ -19,6 +19,17 @@
   to = "/blog/:splat.html"
   status = 301
 
+# `publish = "."` serves the whole repo root, which means the function sources
+# under netlify/functions/ are readable over HTTP (confirmed: /netlify/functions/
+# chat.mjs returned 200 before this rule). They hold no secrets — credentials are
+# env vars — but there is no reason to publish server-side source, and _shared/
+# would be exposed the same way. Note the leading slash is literal: Netlify's own
+# runtime paths live under /.netlify/ and are unaffected.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+
 # Security + privacy headers
 [[headers]]
   for = "/*"

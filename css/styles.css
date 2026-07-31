@@ -474,6 +474,25 @@ body.menu-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 .faq-answer { padding: 0 22px 22px; color: var(--slate); font-size: 1.0rem; line-height: 1.62; }
 .faq-answer p + p { margin-top: 12px; }
 
+/* ---------- FAQ: language toggle + citations (Solar basics group) ----------
+   Both languages live inside the same <details>, so switching language keeps
+   whichever questions the reader had open. The !important is load-bearing:
+   summary is display:flex, which would otherwise beat the hidden attribute's
+   UA default on the spans inside it. */
+.faq-lang-switch { display: flex; gap: 8px; justify-content: center; align-items: center; margin: -12px 0 26px; }
+.faq-lang-switch .lbl { font-size: .84rem; color: var(--faint); font-weight: 600; margin-right: 4px; }
+.faq-lang-switch button { padding: 7px 16px; border-radius: var(--r-pill); font-weight: 700; font-size: .85rem; color: var(--slate); background: var(--bg-soft); border: 1px solid var(--line); cursor: pointer; transition: .22s; }
+.faq-lang-switch button:hover { color: var(--blue); }
+.faq-lang-switch button[aria-pressed="true"] { background: var(--grad-blue); color: #fff; border-color: transparent; box-shadow: var(--sh-blue); }
+[data-lang][hidden] { display: none !important; }
+
+/* Citation line under an answer. Deliberately quiet — it should reassure
+   without competing with the answer itself. */
+.faq-src { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: .85rem; color: var(--faint); line-height: 1.55; }
+.faq-src b { color: var(--slate); font-weight: 700; }
+.faq-src a { color: var(--blue); font-weight: 600; }
+.faq-src a:hover { text-decoration: underline; }
+
 /* ---------- Forms (contact) ---------- */
 .form-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-xl); padding: clamp(26px, 3.4vw, 44px); box-shadow: var(--sh); }
 .field { margin-bottom: 20px; }

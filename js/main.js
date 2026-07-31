@@ -117,6 +117,33 @@
     });
   }
 
+  /* FAQ language toggle
+     Scoped to the group that contains the switch (Solar basics) — the other
+     tab groups are English-only, so a global toggle would blank them. Both
+     languages sit inside the same <details>, so switching preserves which
+     questions the reader has open. */
+  var langSwitch = document.querySelector('.faq-lang-switch');
+  if (langSwitch) {
+    var LANG_KEY = 'ap_faq_lang';
+    var scope = langSwitch.closest('.faq-group') || document;
+    var applyLang = function (lang) {
+      scope.querySelectorAll('[data-lang]').forEach(function (el) {
+        el.hidden = el.getAttribute('data-lang') !== lang;
+      });
+      langSwitch.querySelectorAll('button[data-set-lang]').forEach(function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+      });
+      try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* private mode */ }
+    };
+    langSwitch.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('button[data-set-lang]') : null;
+      if (btn) applyLang(btn.getAttribute('data-set-lang'));
+    });
+    var savedLang = null;
+    try { savedLang = localStorage.getItem(LANG_KEY); } catch (e) { /* private mode */ }
+    applyLang(savedLang === 'tl' ? 'tl' : 'en');
+  }
+
   /* current year */
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();

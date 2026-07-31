@@ -51,7 +51,9 @@ function parseStored(value) {
  * @param {object} env
  */
 export async function handleVisits(request, store, env) {
-  if (request.method === "OPTIONS") return new Response("", { status: 204 });
+  // 204 is a null-body status: passing even "" to the Response constructor
+  // throws a TypeError under undici/workerd rather than returning a response.
+  if (request.method === "OPTIONS") return new Response(null, { status: 204 });
 
   const offset = offsetFrom(env);
   const counting = request.method === "POST";

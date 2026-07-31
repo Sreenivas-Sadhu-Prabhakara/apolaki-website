@@ -48,7 +48,11 @@ function upstreamHeaders(env) {
 
 /** Handle POST /api/chat. */
 export async function handleChat(request, env) {
-  if (request.method === "OPTIONS") return new Response("", { status: 204 });
+  // 204 is a null-body status: passing even "" to the Response constructor
+  // throws a TypeError under undici/workerd rather than returning a response.
+  // The pre-refactor chat.mjs had `new Response("", {status:204})` here, which
+  // meant a CORS preflight against /api/chat crashed the function.
+  if (request.method === "OPTIONS") return new Response(null, { status: 204 });
   if (request.method !== "POST") return sse("The chat endpoint accepts POST only.");
 
   let body = {};

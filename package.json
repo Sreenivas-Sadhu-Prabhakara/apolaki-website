@@ -5,6 +5,7 @@
   "description": "Apolaki marketing site — static HTML/CSS/JS. This package.json exists only so the Netlify Functions can import @netlify/blobs; the site itself still has no build step.",
   "type": "module",
   "scripts": {
+    "test": "node tools/test-visits-core.mjs",
     "check": "node tools/check-site.mjs",
     "serve": "python3 -m http.server 8799"
   },

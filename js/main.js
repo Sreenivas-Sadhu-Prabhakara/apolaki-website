@@ -118,10 +118,12 @@
   }
 
   /* FAQ language toggle
-     Scoped to the group that contains the switch (Solar basics) — the other
-     tab groups are English-only, so a global toggle would blank them. Both
-     languages sit inside the same <details>, so switching preserves which
-     questions the reader has open. */
+     Scoped to the .faq-group containing the switch. The other three groups
+     carry no [data-lang] elements at all, so a document-wide query would be
+     harmless today — the scoping exists so that adding a second bilingual
+     group later needs its own switch rather than silently sharing this one.
+     Both languages sit inside the same <details>, so switching language
+     preserves which questions the reader already has open. */
   var langSwitch = document.querySelector('.faq-lang-switch');
   if (langSwitch) {
     var LANG_KEY = 'ap_faq_lang';

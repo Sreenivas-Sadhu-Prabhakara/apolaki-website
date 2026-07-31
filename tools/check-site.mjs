@@ -19,6 +19,10 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+// Same normalizer the generator uses. Two implementations meant an "&amp;" in
+// a question was decoded by one and not the other, so a correctly generated
+// schema failed its own check.
+import { text as plain } from "./lib/html-text.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const NO_NET = process.argv.includes("--no-net");
@@ -35,7 +39,13 @@ const pass = (msg) => console.log(`  ✓ ${msg}`);
 //
 // Keep this list SHORT and justified. It is the one mechanism in this file
 // capable of hiding a genuinely broken citation, so every entry must have been
-// opened in a real browser first. A 404 is never listed here.
+// opened in a real browser first.
+//
+// Only the status codes below are ever downgraded. An earlier version excused
+// every outcome except 404, which meant a listed host could 500, time out, or
+// fail DNS and still report "all checks passed" — the allowlist would have
+// hidden exactly the outage it was never meant to cover.
+const DOWNGRADABLE = new Set([400, 401, 403, 429]);
 const BOT_BLOCKED = new Map([
   ["privacy.gov.ph", "National Privacy Commission — 403s non-browser user agents"],
   ["www.erc.gov.ph", "Energy Regulatory Commission — 403s non-browser user agents"],
@@ -113,9 +123,7 @@ async function checkFaqSchema() {
 
   // The schema text should be the English question, matching a real summary.
   const summaries = new Set(
-    (html.match(/<summary[^>]*>([\s\S]*?)<\/summary>/gi) || []).map((s) =>
-      s.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().toLowerCase()
-    )
+    (html.match(/<summary[^>]*>([\s\S]*?)<\/summary>/gi) || []).map((s) => plain(s).toLowerCase())
   );
   const orphans = entities
     .map((q) => (q && q.name ? String(q.name).replace(/\s+/g, " ").trim() : ""))
@@ -167,8 +175,9 @@ async function checkLinks() {
     let host = "";
     try { host = new URL(r.url).host; } catch { /* unparseable URL is a real failure */ }
     const note = BOT_BLOCKED.get(host);
-    // A 404 means gone, whatever the host policy is — never excuse it.
-    if (note && r.status !== 404) {
+    // Only a deliberate refusal is a bot policy. Anything else — 404, 5xx,
+    // timeout, DNS failure — is the link being broken, allowlist or not.
+    if (note && DOWNGRADABLE.has(r.status)) {
       blocked++;
       warn(`${r.url} → ${r.status} — ${note} (in ${inFiles})`);
     } else {
@@ -183,6 +192,8 @@ async function checkLinks() {
   }
 }
 
+const TIMEOUT_MS = 20000;
+
 async function probe(url) {
   // Some government hosts reject HEAD, and several reject unknown agents, so
   // fall back to a ranged GET with a browser-ish UA before calling it dead.
@@ -192,24 +203,28 @@ async function probe(url) {
     { method: "HEAD", redirect: "follow" },
     { method: "GET", redirect: "follow", headers: { Range: "bytes=0-2048" } },
   ]) {
+    const last = init.method === "GET";
+    // The controller must reach fetch(), or the timeout rejects this function
+    // while the request keeps running — which held the process open past the
+    // deadline and never actually cancelled anything.
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
     try {
-      const res = await withTimeout(fetch(url, { ...init, headers: { "User-Agent": ua, ...(init.headers || {}) } }), 20000);
+      const res = await fetch(url, {
+        ...init,
+        signal: ctl.signal,
+        headers: { "User-Agent": ua, ...(init.headers || {}) },
+      });
+      if (res.body) await res.body.cancel().catch(() => {});
       if (res.status < 400) return { url, ok: true, status: res.status };
-      if (init.method === "GET") return { url, ok: false, status: res.status };
+      if (last) return { url, ok: false, status: res.status };
     } catch (e) {
-      if (init.method === "GET") return { url, ok: false, status: e.name === "AbortError" ? "timeout" : e.message };
+      if (last) return { url, ok: false, status: e.name === "AbortError" ? "timeout" : e.message };
+    } finally {
+      clearTimeout(timer);
     }
   }
   return { url, ok: false, status: "unknown" };
-}
-
-function withTimeout(promise, ms) {
-  const ctl = new AbortController();
-  const t = setTimeout(() => ctl.abort(), ms);
-  return Promise.race([
-    promise,
-    new Promise((_, rej) => setTimeout(() => rej(Object.assign(new Error("timeout"), { name: "AbortError" })), ms)),
-  ]).finally(() => clearTimeout(t));
 }
 
 /* --------------------------------------------------------- 3. sanity checks */

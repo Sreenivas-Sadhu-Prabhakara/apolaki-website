@@ -476,9 +476,10 @@ body.menu-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
 
 /* ---------- FAQ: language toggle + citations (Solar basics group) ----------
    Both languages live inside the same <details>, so switching language keeps
-   whichever questions the reader had open. The !important is load-bearing:
-   summary is display:flex, which would otherwise beat the hidden attribute's
-   UA default on the spans inside it. */
+   whichever questions the reader had open. The !important on
+   [data-lang][hidden] is belt-and-braces rather than load-bearing: nothing
+   currently sets display on those elements, but any future rule that did would
+   beat the hidden attribute's UA default and show both languages at once. */
 .faq-lang-switch { display: flex; gap: 8px; justify-content: center; align-items: center; margin: -12px 0 26px; }
 .faq-lang-switch .lbl { font-size: .84rem; color: var(--faint); font-weight: 600; margin-right: 4px; }
 .faq-lang-switch button { padding: 7px 16px; border-radius: var(--r-pill); font-weight: 700; font-size: .85rem; color: var(--slate); background: var(--bg-soft); border: 1px solid var(--line); cursor: pointer; transition: .22s; }

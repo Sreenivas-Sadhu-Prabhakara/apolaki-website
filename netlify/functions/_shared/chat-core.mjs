@@ -34,16 +34,22 @@ function baseUrl(env) {
  * is what these two headers are. They are optional so the chain can be proven
  * end-to-end before Access is configured.
  */
-function upstreamHeaders(env) {
-  const headers = {
-    "Content-Type": "application/json",
-    Accept: "text/event-stream",
-  };
+function accessHeaders(env) {
+  const headers = {};
   if (env && env.CF_ACCESS_CLIENT_ID && env.CF_ACCESS_CLIENT_SECRET) {
     headers["CF-Access-Client-Id"] = env.CF_ACCESS_CLIENT_ID;
     headers["CF-Access-Client-Secret"] = env.CF_ACCESS_CLIENT_SECRET;
   }
   return headers;
+}
+
+/** Release an upstream body we are not going to forward, so the socket is freed. */
+function discard(res) {
+  try {
+    if (res && res.body && !res.bodyUsed) res.body.cancel();
+  } catch {
+    /* already closed — nothing to release */
+  }
 }
 
 /** Handle POST /api/chat. */
@@ -86,7 +92,11 @@ export async function handleChat(request, env) {
   try {
     upstream = await fetch(`${base}/assistant/chat`, {
       method: "POST",
-      headers: upstreamHeaders(env),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "text/event-stream",
+        ...accessHeaders(env),
+      },
       body: JSON.stringify({ message, mode, conversation_id: conversationId }),
       signal: abort.signal,
     });
@@ -98,7 +108,15 @@ export async function handleChat(request, env) {
   }
   clearTimeout(timer);
 
-  if (!upstream.ok || !upstream.body) {
+  // Status alone is not enough to trust this response. If Cloudflare Access is
+  // protecting the tunnel and this proxy's service-token env vars are missing
+  // or stale, Access answers with an HTML login page and status 200 — which,
+  // piped through unchecked, would render as markup inside the chat bubble.
+  // Anything that is not an SSE stream is treated as the assistant being
+  // unavailable, which is what it effectively is.
+  const contentType = upstream.headers.get("content-type") || "";
+  if (!upstream.ok || !upstream.body || !/text\/event-stream/i.test(contentType)) {
+    discard(upstream);
     return sse(
       "Our solar assistant is briefly unavailable. Please try again shortly, or start your free assessment in the meantime."
     );
@@ -135,12 +153,21 @@ export async function handleHealth(request, env) {
   try {
     const res = await fetch(`${base}/assistant/health`, {
       method: "GET",
-      headers: upstreamHeaders(env),
+      headers: { Accept: "application/json", ...accessHeaders(env) },
       signal: abort.signal,
     });
     if (!res.ok) {
       clearTimeout(timer);
+      discard(res);
       return healthJson(false, "unhealthy");
+    }
+    // An Access login page is HTML with status 200. Treat anything that is not
+    // JSON as "not answering", so the launcher stays hidden rather than
+    // appearing on the strength of a login redirect.
+    if (!/application\/json/i.test(res.headers.get("content-type") || "")) {
+      clearTimeout(timer);
+      discard(res);
+      return healthJson(false, "not-json");
     }
     // llm-slm answers {"status":"ok"} — or {"status":"db_unreachable"} with a
     // 503, which res.ok already caught. Parse defensively regardless.

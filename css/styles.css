@@ -780,7 +780,7 @@ body.ap-chat-open .ap-chat-panel { opacity: 1; transform: none; pointer-events: 
 .viber-fab svg{width:20px;height:20px;stroke:#fff;flex:none}
 .viber-fab:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(115,96,242,.62);color:#fff}
 .viber-fab:focus-visible{outline:3px solid rgba(115,96,242,.55);outline-offset:3px}
-@media (max-width:560px){.viber-fab span{display:none}.viber-fab{padding:13px;left:14px;bottom:14px}}
+@media (max-width:560px){.viber-fab{left:14px;bottom:14px;padding:10px 15px 10px 12px;font-size:.9rem}}
 @media (prefers-reduced-motion:reduce){.viber-fab{transition:none}}
 
 

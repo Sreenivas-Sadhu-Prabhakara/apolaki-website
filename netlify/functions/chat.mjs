@@ -39,6 +39,7 @@ export default async (req) => {
         "Content-Type": "application/json",
         Accept: "text/event-stream",
         "ngrok-skip-browser-warning": "true",
+        "X-Apolaki-Auth": process.env.ASSISTANT_AUTH_SECRET || "",
       },
       body: JSON.stringify({ message, mode, conversation_id: conversationId }),
     });

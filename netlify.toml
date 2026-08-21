@@ -23,9 +23,9 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
     # CSP = default-deny allowlist, derived from an audit of Josa's pages:
     #   images → self + data: + Pexels (hotlinked photos); fonts/css → self;
-    #   script/style → self + inline; form → self + app.apolaki.ai (bill-bar GET);
+    #   script/style → self + inline; form → self + apolaki-478302.web.app (bill-bar GET);
     #   no fetch/XHR, iframes, video, or audio.
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https://images.pexels.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self' https://app.apolaki.ai; base-uri 'self'; frame-ancestors 'self'; object-src 'none'"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https://images.pexels.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self' https://apolaki-478302.web.app; base-uri 'self'; frame-ancestors 'self'; object-src 'none'"
 
 # ── Caching (files are not fingerprinted) ──────────────────────────────────
 # Fonts + images: safe to cache a week.

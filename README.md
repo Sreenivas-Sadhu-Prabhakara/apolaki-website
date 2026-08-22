@@ -1,6 +1,6 @@
 # Apolaki Website
 
-Marketing site for [apolaki.ai](https://apolaki.ai), built for VESS Corp.
+Marketing site for [apolaki.ai](https://apolaki.ai), built for VESS Energy Corp.
 Static HTML/CSS/JS — no build step, no dependencies.
 
 Hosted on **Netlify**: production deploys automatically from `main`, and every

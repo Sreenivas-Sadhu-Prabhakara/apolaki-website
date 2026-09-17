@@ -24,8 +24,13 @@
     # CSP = default-deny allowlist, derived from an audit of Josa's pages:
     #   images → self + data: + Pexels (hotlinked photos); fonts/css → self;
     #   script/style → self + inline; form → self + apolaki-478302.web.app (bill-bar GET);
-    #   no fetch/XHR, iframes, video, or audio.
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https://images.pexels.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self' https://apolaki-478302.web.app; base-uri 'self'; frame-ancestors 'self'; object-src 'none'"
+    #   Meta Pixel → script from connect.facebook.net (fbevents.js + per-pixel config),
+    #   events to www.facebook.com/tr as image or beacon (img-src + connect-src). In Chrome,
+    #   any event URL ≥2048 chars (form clicks with hashed email, ad landings carrying
+    #   fbclid + UTMs) is POSTed from a hidden form into a hidden iframe instead — without
+    #   frame-src + form-action for www.facebook.com, Chrome silently drops exactly those.
+    #   No video or audio.
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https://images.pexels.com https://www.facebook.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; connect-src 'self' https://www.facebook.com; frame-src 'self' https://www.facebook.com; form-action 'self' https://apolaki-478302.web.app https://www.facebook.com; base-uri 'self'; frame-ancestors 'self'; object-src 'none'"
 
 # ── Caching (files are not fingerprinted) ──────────────────────────────────
 # Fonts + images: safe to cache a week.

@@ -850,6 +850,14 @@ body:has(.chero) .nv .bg span{background:var(--ink)}
   color:#15794A;font-weight:600;font-size:.9rem}
 .cform-ok.on{display:block}
 
+/* ---- form submission states (contact + waitlists) ---- */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-err{margin:8px 0 0;font-size:.85rem;font-weight:600;color:#B42318}
+.form-err[hidden]{display:none}
+.cform .b[aria-busy="true"],.wait .b[aria-busy="true"]{opacity:.7;cursor:progress}
+.soon.dark .form-err{color:#FFB4A8}
+.soon.center .form-err{text-align:center}
+
 @media(max-width:920px){
   .posts{grid-template-columns:1fr 1fr}
   .postrow{grid-template-columns:1fr}

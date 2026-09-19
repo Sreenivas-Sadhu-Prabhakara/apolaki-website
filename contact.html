@@ -108,23 +108,29 @@ src="https://www.facebook.com/tr?id=2200026938061467&ev=PageView&noscript=1"
     <div class="tlg">
       <div>
         <div class="sh r" style="margin-bottom:20px"><h2>Send us a message.</h2><p>Tell us who you are and we will point you at the right person.</p></div>
-        <form class="cform r" data-contact>
+        <form class="cform r" data-contact name="apolaki-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="apolaki-contact">
+          <input type="hidden" name="form_type" value="contact">
+          <input type="hidden" name="subject" value="Apolaki website — Contact message (%{submissionId})">
+          <input type="hidden" name="source_page" value="/contact.html">
+          <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="rowx">
-            <div><label for="cn">Your name</label><input id="cn" required placeholder="Juan dela Cruz"></div>
-            <div><label for="ce">Email</label><input id="ce" type="email" required placeholder="you@email.com"></div>
+            <div><label for="cn">Your name</label><input id="cn" name="name" required maxlength="120" autocomplete="name" placeholder="Juan dela Cruz"></div>
+            <div><label for="ce">Email</label><input id="ce" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@email.com"></div>
           </div>
           <div><label for="ct">I am a</label>
-            <select id="ct">
-              <option>Homeowner looking at solar</option>
-              <option>Solar installer</option>
-              <option>Financing partner or lender</option>
-              <option>Press or something else</option>
+            <select id="ct" name="visitor_type">
+              <option value="homeowner">Homeowner looking at solar</option>
+              <option value="installer">Solar installer</option>
+              <option value="financing">Financing partner or lender</option>
+              <option value="other">Press or something else</option>
             </select>
           </div>
-          <div><label for="cm">Message</label><textarea id="cm" required placeholder="What can we help with?"></textarea></div>
-          <button type="submit" class="b b-blue">Send message <svg class="ar" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <div><label for="cm">Message</label><textarea id="cm" name="message" required maxlength="5000" placeholder="What can we help with?"></textarea></div>
+          <p class="form-err" role="alert" hidden></p>
+          <button type="submit" class="b b-blue" data-busy="Sending…">Send message <svg class="ar" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
-        <div class="cform-ok r">Thanks. We have got it and will reply within a working day.</div>
+        <div class="cform-ok r" role="status" tabindex="-1">Thanks. We have got it and will reply within a working day.</div>
       </div>
       <div class="r">
         <div class="callband" style="grid-template-columns:1fr">

@@ -50,3 +50,101 @@
   btn.innerHTML = icon + "<span>" + label + "</span>";
   document.body.appendChild(btn);
 })();
+
+/* Apolaki — website form submission (Contact + homeowner/installer waitlists).
+   Netlify Forms registers these forms from the static markup at deploy time
+   and emails each verified submission to hello@apolaki.ai (configured in
+   Netlify, never from the browser). This only upgrades the native POST to an
+   in-page submit so the visitor stays on the page; with JavaScript off the
+   native POST still reaches Netlify. Scoped to form[data-contact] and
+   form[data-wait] — the home-page bill form is never intercepted.
+
+   Honest by design: the thank-you shows only after Netlify accepts the POST,
+   a failure keeps every field, and there is no automatic retry — a lost
+   response could otherwise turn into a second message. */
+(function () {
+  "use strict";
+
+  var TIMEOUT_MS = 15000;
+  var FAIL = "We couldn't confirm your submission. Please try again, or email hello@apolaki.ai.";
+
+  // Contact keeps its error line inside the form; waitlists put their status
+  // lines right after it. Look inside first, then at the following siblings.
+  function near(form, sel) {
+    var el = form.querySelector(sel);
+    for (var n = form.nextElementSibling; !el && n; n = n.nextElementSibling) {
+      if (n.matches(sel)) el = n;
+    }
+    return el;
+  }
+
+  // Return a message to show the visitor, or "" when the form may be sent.
+  // Runs after the browser's own required/type/maxlength checks have passed.
+  function validate(form) {
+    // `required` accepts whitespace-only text, which would email hello@ a
+    // blank inquiry. Trim in place (hello@ gets clean text) and focus the
+    // first empty field so keyboard users land on it. Waitlists have neither.
+    var fields = [["name", "your name"], ["message", "a message"]];
+    for (var i = 0; i < fields.length; i++) {
+      var el = form.elements.namedItem(fields[i][0]);
+      if (!el) continue;
+      el.value = el.value.trim();
+      if (!el.value) { el.focus(); return "Please enter " + fields[i][1] + "."; }
+    }
+    return "";
+  }
+
+  function bind(form, okSel) {
+    if (form.dataset.apBound) return; // bind once, even if this runs again
+    form.dataset.apBound = "1";
+    var btn = form.querySelector('button[type="submit"]');
+    var err = near(form, ".form-err");
+    var ok = near(form, okSel);
+    if (!btn || !err) return; // markup missing → leave the native POST alone
+    var idle = btn.innerHTML;
+    var busy = false;
+
+    function showErr(msg) { err.textContent = msg; err.hidden = !msg; }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (busy) return; // one in-flight submission per form
+      var msg = validate(form);
+      showErr(msg);
+      if (msg) return;
+
+      // Serialize BEFORE disabling anything: disabled controls drop out of FormData.
+      var body = new URLSearchParams(new FormData(form)).toString();
+      busy = true;
+      btn.disabled = true;
+      btn.setAttribute("aria-busy", "true");
+      btn.textContent = btn.dataset.busy || "Sending…";
+      if (ok) ok.classList.remove("on");
+
+      var ctl = new AbortController();
+      var timer = setTimeout(function () { ctl.abort(); }, TIMEOUT_MS);
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body,
+        signal: ctl.signal
+      }).then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status); // a resolved fetch is not success
+        form.reset(); // clear only on confirmed acceptance
+        if (ok) { ok.classList.add("on"); ok.focus(); }
+      }).catch(function () {
+        showErr(FAIL); // fields stay as typed so the visitor can retry
+      }).then(function () {
+        clearTimeout(timer);
+        busy = false;
+        btn.disabled = false;
+        btn.removeAttribute("aria-busy");
+        btn.innerHTML = idle; // restores the static label + arrow icon, never user text
+      });
+    });
+  }
+
+  if (!("fetch" in window) || !("AbortController" in window) || !("URLSearchParams" in window)) return;
+  document.querySelectorAll("form[data-contact]").forEach(function (f) { bind(f, ".cform-ok"); });
+  document.querySelectorAll("form[data-wait]").forEach(function (f) { bind(f, ".wait-ok"); });
+})();

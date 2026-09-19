@@ -268,11 +268,17 @@ src="https://www.facebook.com/tr?id=2200026938061467&ev=PageView&noscript=1"
           <b>Payment gateway</b><span>Take deposits and staged payments without chasing bank transfers.</span>
         </div>
       </div>
-      <form class="wait" data-wait>
-        <input type="email" required placeholder="you@company.com" aria-label="Email address">
-        <button type="submit" class="b b-blue">Join the waitlist</button>
+      <form class="wait" data-wait name="apolaki-installer-waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="apolaki-installer-waitlist">
+        <input type="hidden" name="form_type" value="waitlist">
+        <input type="hidden" name="audience" value="installer">
+        <input type="hidden" name="source_page" value="/installers.html">
+        <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="you@company.com" aria-label="Email address">
+        <button type="submit" class="b b-blue" data-busy="Joining…">Join the waitlist</button>
       </form>
-      <p class="wait-ok">Thanks. You are on the list.</p>
+      <p class="form-err" role="alert" hidden></p>
+      <p class="wait-ok" role="status" tabindex="-1">Thanks. You are on the list.</p>
     </div>
   </div>
 </section>

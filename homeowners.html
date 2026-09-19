@@ -217,11 +217,17 @@ src="https://www.facebook.com/tr?id=2200026938061467&ev=PageView&noscript=1"
           <b>In-house financing</b><span>Pay monthly through Apolaki instead of hunting for a bank.</span>
         </div>
       </div>
-      <form class="wait" data-wait>
-        <input type="email" required placeholder="you@email.com" aria-label="Email address">
-        <button type="submit" class="b b-blue">Join the waitlist</button>
+      <form class="wait" data-wait name="apolaki-homeowner-waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="apolaki-homeowner-waitlist">
+        <input type="hidden" name="form_type" value="waitlist">
+        <input type="hidden" name="audience" value="homeowner">
+        <input type="hidden" name="source_page" value="/homeowners.html">
+        <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="you@email.com" aria-label="Email address">
+        <button type="submit" class="b b-blue" data-busy="Joining…">Join the waitlist</button>
       </form>
-      <p class="wait-ok">Thanks. You are on the list.</p>
+      <p class="form-err" role="alert" hidden></p>
+      <p class="wait-ok" role="status" tabindex="-1">Thanks. You are on the list.</p>
     </div>
   </div>
 </section>

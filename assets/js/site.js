@@ -13,7 +13,7 @@
   "use strict";
 
   var VIBER = {
-    number: "+639178161707", // E.164, digits only after the "+"
+    number: "+639175672319", // E.164, digits only after the "+"
     label: "Viber us"        // shown beside the icon
   };
 

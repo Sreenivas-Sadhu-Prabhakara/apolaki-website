@@ -1,25 +1,19 @@
-# Apolaki marketing site — static, no build step
+# Apolaki marketing site — static, no build step.
+# `publish = "."` serves the repo root, so every non-dotfile here is public.
 [build]
   publish = "."
-  functions = "netlify/functions"
 
-[functions]
-  node_bundler = "esbuild"
-
-# Canonicalize the host: 301 the raw Netlify subdomain to the primary domain
-# (prevents apolaki-ph.netlify.app from serving duplicate content vs apolaki.ai)
+# ── Canonicalize the host ──────────────────────────────────────────────────
+# 301 the raw Netlify alias to the primary domain so the two never serve
+# duplicate content. Deploy previews use a different host, so they're
+# unaffected and stay on their own URL.
 [[redirects]]
   from = "https://apolaki-ph.netlify.app/*"
   to = "https://apolaki.ai/:splat"
   status = 301
   force = true
 
-[[redirects]]
-  from = "/blog/*/"
-  to = "/blog/:splat.html"
-  status = 301
-
-# Security + privacy headers
+# ── Security + privacy headers ─────────────────────────────────────────────
 [[headers]]
   for = "/*"
   [headers.values]
@@ -27,21 +21,28 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'self'; object-src 'none'"
+    # CSP = default-deny allowlist, derived from an audit of Josa's pages:
+    #   images → self + data: + Pexels (hotlinked photos); fonts/css → self;
+    #   script/style → self + inline; form → self + app.apolaki.ai (bill-bar GET);
+    #   no fetch/XHR, iframes, video, or audio.
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https://images.pexels.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self' https://app.apolaki.ai; base-uri 'self'; frame-ancestors 'self'; object-src 'none'"
 
-# Images/fonts: cache a week (not content-hashed, so don't go immutable)
+# ── Caching (files are not fingerprinted) ──────────────────────────────────
+# Fonts + images: safe to cache a week.
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
-
-# CSS/JS: revalidate so edits go live on next deploy (files aren't fingerprinted)
 [[headers]]
-  for = "/css/*"
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+# CSS + JS: revalidate so edits go live on the next deploy.
+[[headers]]
+  for = "/assets/css/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-
 [[headers]]
-  for = "/js/*"
+  for = "/assets/js/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"

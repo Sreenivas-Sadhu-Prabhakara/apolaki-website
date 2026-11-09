@@ -107,6 +107,15 @@ p{color:var(--ink-70);font-size:.975rem;line-height:1.62}
 .nv-act{display:flex;align-items:center;gap:6px}
 .nv-act .lgin{font-family:var(--disp);font-weight:520;font-size:.86rem;padding:8px 14px;border-radius:8px;color:rgba(255,255,255,.85);transition:.3s}
 .nv-act .lgin:hover{background:rgba(255,255,255,.1);color:#fff}
+/* ── language toggle (EN · TL) — stays visible on mobile (not a .lgin/.b) ── */
+.lang-tgl{display:inline-flex;align-items:center;gap:2px;margin-right:4px;font-family:var(--disp);font-weight:520;font-size:.8rem;border:1px solid rgba(255,255,255,.26);border-radius:8px;padding:3px;line-height:1}
+.lang-opt{padding:3px 7px;border-radius:6px;color:rgba(255,255,255,.72);text-decoration:none;transition:.25s;cursor:pointer}
+a.lang-opt:hover{color:#fff;background:rgba(255,255,255,.14)}
+.lang-opt.is-on{color:#fff;background:rgba(255,255,255,.18);cursor:default}
+.nv.solid .lang-tgl,body:has(.phero) .nv .lang-tgl,body:has(.chero) .nv .lang-tgl{border-color:var(--ink-25)}
+.nv.solid .lang-opt,body:has(.phero) .nv .lang-opt,body:has(.chero) .nv .lang-opt{color:var(--ink-70)}
+.nv.solid a.lang-opt:hover,body:has(.phero) .nv a.lang-opt:hover,body:has(.chero) .nv a.lang-opt:hover{color:var(--ink);background:var(--paper-3)}
+.nv.solid .lang-opt.is-on,body:has(.phero) .nv .lang-opt.is-on,body:has(.chero) .nv .lang-opt.is-on{color:var(--ink);background:var(--paper-3)}
 /* solid state */
 .nv.solid{background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom-color:var(--hair)}
 .nv.solid .nv-lg{display:none}

@@ -1,3 +1,6 @@
 .DS_Store
 node_modules/
 .netlify/
+
+# Claude Code local bookkeeping (agent worktrees, session state) — never committed
+.claude/

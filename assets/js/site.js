@@ -20,6 +20,7 @@
   var number = String(VIBER.number || "").replace(/[\s()\-]/g, "");
   var label = String(VIBER.label || "").trim();
   if (!/^\+[1-9]\d{7,14}$/.test(number) || !label) return; // fail-closed
+  if (document.querySelector(".ap-viber-launcher")) return; // idempotent: soft-swap re-runs this file
 
   // Positioning only — colours, radius, font and hover all come from `.b b-blue`
   // in assets/css/apolaki.css. The shadow reuses the site's own blue-button
@@ -27,9 +28,12 @@
   var css =
     ".ap-viber-launcher{position:fixed;right:clamp(16px,3vw,26px);bottom:clamp(16px,3vw,26px);" +
     "z-index:89;text-decoration:none;box-shadow:0 12px 30px -12px rgba(14,108,189,.55)}";
-  var style = document.createElement("style");
-  style.textContent = css;
-  document.head.appendChild(style);
+  if (!document.getElementById("ap-viber-style")) {
+    var style = document.createElement("style");
+    style.id = "ap-viber-style";
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
 
   // Josa's own outline Viber glyph (matches the footer social icon).
   var icon =

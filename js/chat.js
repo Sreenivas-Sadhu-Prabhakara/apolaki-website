@@ -74,11 +74,22 @@
           '<textarea id="apInput" class="ap-chat-input" rows="1" placeholder="Ask about going solar…" maxlength="1200"></textarea>' +
           '<button type="submit" class="ap-chat-send" aria-label="Send">' + ICON.send + '</button>' +
         '</form>' +
+        /* Notice at the point of collection, not only in the policy: the visitor
+           types free text here, so what happens to it belongs on this screen.
+           "not stored by this site" is the verified claim — chat-core.mjs
+           forwards the message upstream and never writes it to Blobs or logs. */
         '<p class="ap-chat-note">AI assistant · general guidance, not financial advice</p>' +
+        '<p class="ap-chat-note ap-privacy">Answered by our assistant and not stored by this site. Please don’t type ID numbers or bank details. <a href="/privacy.html">Privacy</a></p>' +
       '</div>';
 
     document.body.appendChild(launcher);
     document.body.appendChild(panel);
+
+    /* Tells the stylesheet a chat launcher now occupies the bottom-right slot,
+       so the Viber button raises itself clear of it. Set here rather than in
+       gate() on purpose: it must reflect the button actually existing, not the
+       health check merely having passed. */
+    document.body.classList.add("ap-chat-on");
 
     els.launcher = launcher;
     els.panel = panel;
@@ -218,7 +229,34 @@
       .catch(function () { clearTimeout(timer); onDone(null, true); });
   }
 
+  /* Health gate.
+     The assistant is self-hosted on a workstation, so it is legitimately
+     offline sometimes. A prominent "Ask Apolaki" button that apologises when
+     clicked serves a visitor worse than no button at all, so nothing is
+     injected into the page until /api/chat-health confirms the assistant is
+     actually answering. The endpoint is edge-cached for a minute, so this
+     costs one cheap request per visit and recovers within a minute of the
+     machine waking up.
+
+     Failing closed is deliberate: if the check itself errors, we show nothing
+     rather than risk a broken widget. */
+  function gate() {
+    if (!window.fetch) return;
+    var abort = null, timer = null;
+    if (window.AbortController) {
+      abort = new AbortController();
+      timer = setTimeout(function () { abort.abort(); }, 5000);
+    }
+    fetch("/api/chat-health", { cache: "no-store", signal: abort ? abort.signal : undefined })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (h) {
+        if (timer) clearTimeout(timer);
+        if (h && h.ok === true) build();
+      })
+      .catch(function () { if (timer) clearTimeout(timer); });
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", build);
-  } else { build(); }
+    document.addEventListener("DOMContentLoaded", gate);
+  } else { gate(); }
 })();

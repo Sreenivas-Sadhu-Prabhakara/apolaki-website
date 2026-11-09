@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Not public content. These are blocked at the edge too (see netlify.toml and
+# functions/_middleware.js); this is belt-and-braces so a crawler never indexes
+# server source or ops documentation if a routing rule is ever lost.
+Disallow: /netlify/
+Disallow: /functions/
+Disallow: /docs/
+Disallow: /tools/
+
 Sitemap: https://apolaki.ai/sitemap.xml

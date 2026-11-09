@@ -21,6 +21,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
+      # The site itself still has no build step. This installs the single
+      # runtime dependency the Functions import (@netlify/blobs, used by the
+      # visitor counter) so esbuild can resolve it while bundling. Without it
+      # `netlify deploy` bundles a broken /api/visits and the counter silently
+      # falls back to its floor value.
+      - name: Install function dependencies
+        run: npm ci
 
       - name: Deploy to Netlify (production)
         run: npx --yes netlify-cli@17 deploy --dir=. --prod --message "CI deploy ${GITHUB_SHA::7}"

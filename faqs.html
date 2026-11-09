@@ -29,77 +29,373 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is the Apolaki solar assessment really free for homeowners?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The readiness assessment is free for homeowners — and it stays that way. We only earn from installer partners on the other side of the platform, so you can explore your solar numbers without cost, pressure, or a payment wall."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How accurate are Apolaki's solar estimates?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every estimate is anchored to your real electricity bill, then refined with NASA POWER irradiance data and Google Solar rooftop analysis. We show the assumptions behind each figure so nothing is a black box. The numbers are a strong planning estimate — your chosen installer confirms the final system after a site visit."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does a solar assessment take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Just a few minutes. Enter your location and a recent electricity bill, and Apolaki returns a readiness report with estimated system size, savings, and payback. You can refine it later by adding more bills or details."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does solar cost in the Philippines?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "As a rough guide, installed residential solar starts around ₱50,000 per kilowatt and can reach about ₱65,000 for premium equipment — so a 5 kW system runs roughly ₱250,000–325,000. Treat these as ranges: your actual quote depends on your bill, roof, equipment, and installer. Apolaki sizes a system to your usage so you are not over- or under-buying."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the payback period for home solar?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For many Filipino homes, payback lands in the 3 to 5 year range, after which the energy your panels produce is essentially free for the rest of their 20-plus year life. Your exact payback depends on your bill size, system size, roof, and electricity rate — all of which your readiness report accounts for."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Will solar power my home during a brownout?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Only if you add a battery or a hybrid inverter. A standard grid-tied system automatically shuts off during an outage for the safety of utility crews, so it will not run your home during a brownout. If backup power matters to you, tell your installer and they can design a hybrid or battery setup."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is my data private, and will I get spam calls?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Your data is encrypted and stays anonymised until you choose to connect with an installer — we call it private until you connect, in line with the Data Privacy Act of 2012 (RA 10173). No installer can contact you directly. You decide if and when an introduction happens, so there are no surprise sales calls."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is net metering?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Net metering lets you export surplus solar energy back to the grid in exchange for credits on your electricity bill. Under DOE rules, residential and small-business systems up to 100 kW qualify. It is one of the main reasons a right-sized rooftop system pays for itself."
-        }
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the assessment really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — and it's free forever for homeowners. You can run your readiness report, explore different system sizes, and see your estimated savings without paying anything or entering a card. Apolaki earns from installer partners, not from you, so there's never a cost or an obligation to buy."
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are the numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We start from your real electricity bill, then layer on NASA POWER irradiance data and Google Solar rooftop analysis for your specific location. Every estimate shows the assumptions behind it, so you can see how we got there. It's a solid planning figure — your chosen installer confirms the final design after a site visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Just a few minutes. Enter your location and a recent bill, and you'll get a readiness report with estimated system size, savings, and payback. You can come back anytime to refine it with more detail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need my MERALCO bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It helps a lot, but you're not stuck if it isn't handy. You can upload a photo of your bill and let Apolaki read it for you, or enter the figures manually. The more bills you add — especially across different months — the more accurate your estimate becomes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does solar cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a rough guide, installed residential solar starts around ₱50,000 per kilowatt and can reach about ₱65,000 for premium equipment — so a 5 kW system runs roughly ₱250,000–325,000. Think of these as ranges, not fixed prices: your bill, roof, equipment, and installer all move the number. Apolaki sizes a system to your actual usage so you're not paying for more than you need."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the payback period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For many Filipino homes, payback typically lands in the 3 to 5 year range. After that, the energy your panels produce is essentially free for the remaining 20-plus years of their life. Your exact payback depends on your bill, system size, and electricity rate — all of which your report takes into account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will solar power my home during a brownout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if you add a battery or a hybrid inverter. A standard grid-tied system automatically switches off during an outage to protect utility crews working on the lines, so it won't run your home during a brownout. If backup power matters to you, mention it to your installer — they can design a hybrid or battery setup for those moments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Your data is encrypted, and it stays anonymised until you choose to connect with an installer — we call it \"private until you connect.\" We follow the Data Privacy Act of 2012 (RA 10173), and you stay in control of what's shared and when."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I get spam calls?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Installers can't reach you directly. An introduction only happens when you decide you're ready and consent to it — the handoff is gated on your choice. Until then, you can explore quietly, with no sales calls and no inbox full of follow-ups."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Apolaki give installers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Qualified, consented lead profiles — not raw contact lists. Each profile includes the homeowner's bill range, location, estimated system size, and where they are in their decision. You spend your time on people who are genuinely solar-ready, with the context to make a strong first proposal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from buying leads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most lead lists sell volume; we focus on quality. Every profile is bill-backed, consent-driven, and decision-ready, so you're not paying for cold names or chasing people who never intended to buy. Fewer leads, but each one is a real opportunity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do homeowners contact us directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not until they choose to. The connection is mediated — the homeowner stays anonymous until they consent to an introduction. That consent step is exactly what makes the resulting conversation warmer and more likely to convert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it cost installers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We're finalising the commercial model and are piloting a few approaches — a per-qualified-lead fee, a pilot subscription, and a success-based fee. The right fit depends on your size and how you sell. Reach out and we'll walk you through current options and onboard you for the pilot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we list our portfolio and services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Partners can publish a marketplace listing with their portfolio and services, and bid on opportunities that match their strengths. It's a place to show your track record to homeowners who are already past the \"is solar worth it?\" stage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you vet installers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partners go through an onboarding and verification process before they can appear to homeowners. Throughout, the homeowner stays in control of who they connect with — keeping the marketplace trustworthy on both sides."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I join?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tell us a little about your company and we'll get you started. Apply to become a partner and we'll reach out about onboarding, verification, and the current pilot terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Apolaki?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apolaki is a digital solar readiness and partner-matching platform for Philippine homes and small businesses. It turns a confusing solar decision into a clear, bill-backed readiness report — easy for homeowners to understand, and structured enough for installers to act on. The name comes from Apolaki, the Filipino god of the sun."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data sources do you use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We combine NASA POWER solar irradiance data with Google Solar rooftop analysis, then anchor everything to your real electricity bill. That combination keeps estimates grounded in both the sunlight your location actually gets and the energy you actually use — not generic averages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is net metering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Net metering lets you export surplus solar energy back to the grid in exchange for credits on your bill. Under DOE rules, systems up to 100 kW qualify — comfortably covering homes and small businesses. It's a big part of why a right-sized rooftop system pays for itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Apolaki available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apolaki is built for the Philippines. It was created at the Asian Institute of Management (AIM) and is operated by VESS Corp., based in Metro Manila. Our data and assumptions are tuned for Philippine conditions, from local sun-hours to net-metering rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a mobile app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The web app is live now, so you can run a full assessment from any browser today. Native iOS and Android apps are on the way. In the meantime, you can launch the web app on your phone or laptop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who built Apolaki?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apolaki was founded by three students in the Master in Innovation and Business program at the Asian Institute of Management, operating as VESS Corp. You can read more about the team and our measurement-and-verification approach on the About page ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I contact you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The quickest way is our contact page , or email us directly at jelegado.MIB2026B@aim.edu . Whether you're a homeowner with a question or an installer interested in partnering, we'd love to hear from you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do solar panels actually work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sunlight hits silicon cells and knocks electrons loose, producing direct current (DC). An inverter converts that into the alternating current (AC) your appliances use. The electricity feeds your house first — only what you don't use flows out to the grid. There are no moving parts, which is why panels need so little looking after."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do kW, kWp and kWh actually mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "kW is power — how fast electricity is flowing right now. kWh is energy — power multiplied by time, and it is what Meralco actually bills you for. kWp (\"kilowatt-peak\") is the rating of a solar array under standard test conditions, so a 5 kWp system is the size you are buying. Your bill is in kWh, your system is quoted in kWp, and how many kWh each kWp gives you depends on your roof and your sunlight. That single conversion is where most confusing quotes come from."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between on-grid, off-grid and hybrid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On-grid (grid-tied) has no battery and works alongside your utility. It is the cheapest and pays back fastest — but it shuts down during a brownout. Off-grid runs entirely on batteries with no utility connection: expensive, and meant for places with no line at all. Hybrid has both grid and battery, so selected circuits stay alive during an outage. Most Philippine households buying solar to cut a bill are best served by on-grid. Batteries are a backup decision, not a savings decision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will solar work on my roof?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Philippine roofs will. What matters is usable unshaded area, orientation, and the condition of the roof itself. The Global Solar Atlas puts the optimum panel tilt for Metro Manila at about 12° — close to flat, which suits the shallow pitches common here. Shade is the real enemy. A neighbour's tree or the shadow of a water tank costs far more output than a slightly imperfect angle. And if your roof is due for replacement in the next few years, replace it first — taking an array down and putting it back is pure wasted cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much sun does a Philippine roof actually get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A great deal. NASA's POWER dataset puts a Metro Manila rooftop at an annual average of 5.10 kWh per m² per day , moving between about 4.15 in December and 6.67 in April. For context, the World Bank treats anywhere above 4.5 kWh per installed kWp per day as an excellent candidate for solar PV. The Philippines clears that comfortably — sunlight is not the constraint here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a home solar system cost here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a planning range, installed residential solar generally runs about ₱50,000 to ₱65,000 per kilowatt, so a 5 kW system lands roughly between ₱250,000 and ₱325,000 depending on equipment and installer. Treat any figure you read online — including this one — as a range rather than a quote. Your roof, your consumption, your equipment choices and your installer all move it. Apolaki's free assessment sizes a system against your actual bill so you are not over- or under-buying before you talk to anyone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can I really save on my Meralco bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your rate and on how much of your electricity you use during daylight. In July 2026 Meralco's all-in residential rate was ₱14.8261 per kWh , and a household consuming 400 kWh paid ₱6,177.94 . Every kWh your panels supply during the day is a kWh you do not buy at that rate. One detail worth knowing: Meralco's distribution charge is tiered. It is ₱0.9803 per kWh up to 200 kWh, but ₱2.0941 per kWh above 400 kWh. Because solar shaves off your most expensive block first, a heavy user saves noticeably more per kWh than a light one. Rates change monthly, so check the current figures before relying on any calculation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is net metering, and how does it work in the Philippines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Net metering gives you a two-way connection to the grid: you are charged only for your net consumption and credited for what you export. That is not marketing language — it is the statutory definition in Section 4 of the Renewable Energy Act of 2008 (RA 9513). Section 10 of the same Act obliges your distribution utility to enter into a net-metering agreement with qualified end-users on request, without discrimination. So it is a right, not a favour. The credit for exported energy is worth less than the retail rate you pay for imported energy, which is why using your own power during the day beats exporting it. Size your system for self-consumption first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I actually apply for net metering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It got considerably lighter recently. An Energy Regulatory Commission advisory dated 22 September 2025 directed all on-grid distribution utilities to cut the homeowner's paperwork to four items: the application form, a Certificate of Final Electrical Inspection (CFEI) issued by your LGU, the amended Net-Metering Agreement, and the COC application fee. The same advisory states that notarisation is not mandatory and that electronic signatures are allowed. Meralco has updated its published process to match. Outside Meralco, your own distribution utility runs an equivalent process — Visayan Electric in Cebu, for example, publishes a three-stage flow including a Distribution Impact Study before approval."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a limit on how big my system can be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — and in practice the binding limit is usually your distribution transformer , not the law. Meralco publishes a hosting-capacity table setting how much solar a transformer can carry: 10 or 15 kVA → 7 kW · 25 kVA → 10 kW · 37.5 kVA → 14 kW · 50 kVA → 19 kW · 75 kVA → 29 kW · 100 kVA → 38 kW. That capacity is shared across everyone on the same transformer, so if neighbours have already installed, some of it may be taken. A typical home system of 3–8 kW usually fits comfortably, but Meralco does a final assessment per application — which is why an experienced installer checks this early rather than after you have paid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there government incentives for homeowners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is worth being precise about, because it is widely misreported. The headline incentives in the Renewable Energy Act — the seven-year income tax holiday, duty-free importation of equipment, zero-rated VAT and the 10% corporate tax rate — apply to registered RE developers . They are not a discount a household gets for putting panels on its roof. What the law does give a homeowner is the right to net metering itself, under Section 10. The Act also waives the government share for micro-scale projects of 100 kW or less used for communal, non-commercial purposes (Section 13). If an installer tells you your household qualifies for the developer incentives, ask them to show you where."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need batteries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not to cut your bill. Batteries do not generate anything — they move energy through time, and they are a large share of total system cost. If your goal is a smaller electricity bill, a grid-tied system without batteries pays back fastest. Add batteries when you specifically want to ride through brownouts, or when you use most of your electricity at night and net metering credits do not compensate for it. That is a comfort-and-resilience decision with its own price tag, and it is fine to make it deliberately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will solar keep my lights on during a brownout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with a standard grid-tied system, and this surprises people. When the grid goes down, your inverter is required to disconnect — a safety behaviour called anti-islanding . It exists so that your panels cannot energise a line that a utility crew is repairing, which would be lethal for them. To keep power during an outage you need a hybrid inverter with battery storage, or a transfer arrangement that isolates selected circuits from the grid. Ask about this explicitly before you buy if outage resilience is part of why you want solar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens on cloudy days and in the rainy season?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Output drops but does not stop — panels also work on diffuse light, which is why an overcast day still produces. The seasonal swing in Metro Manila is real but not dramatic: NASA's data moves between roughly 4.15 kWh/m² per day in December and 6.67 in April, a ratio of about 1.6 between worst and best month. The practical lesson is to size a system against your annual consumption, not your sunniest month. A system sized to peak-month output will overspend and export cheaply for most of the year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will typhoons damage my panels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The panels are rarely the weak point — the mounting is. Racking has to be engineered for local wind loading, anchored into sound roof structure rather than just sheeting, and sealed properly at every penetration. Most typhoon failures are installation failures. Insist that the electrical design is prepared and signed by a licensed professional electrical engineer; that profession is regulated in the Philippines under RA 7920. Ask for the wind-load rating of the mounting system in writing, and check whether your home insurance covers a roof-mounted array — many policies do not by default."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do panels last, and what maintenance do they need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Panels typically carry 25-year performance warranties and degrade gradually rather than failing outright — a panel at year 25 is usually still producing, just somewhat less. The inverter is the component most likely to need replacing first, commonly somewhere around year 10 to 15, and you should budget for that from the start. Day-to-day maintenance is mostly keeping the glass clean. Dust, salt near the coast and bird droppings all cost real output. Add an occasional inspection of mounting hardware and electrical connections, which matters more here than in milder climates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much roof space do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A reasonable planning figure is 5 to 7 m² of unshaded roof per kWp, so a 5 kWp array needs roughly 25 to 35 m². Higher-efficiency panels need less area for the same output, which matters on a small or awkward roof. The number that actually constrains you is usable, unshaded, structurally sound area facing a sensible direction — not total roof area. A large roof with a water tank in the middle of it can be worth less than a small clean one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a permit to install solar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A rooftop array is a structural and electrical alteration to your home, so you deal with your LGU as well as your utility. The clearest evidence of this is that the Certificate of Final Electrical Inspection required in your net-metering application is issued by the LGU, not by the utility. Requirements differ by city — Quezon City's Department of the Building Official, for instance, publishes its own — so ask early rather than after the panels are on the roof. A competent installer normally handles this for you; ask whose responsibility it is before signing. For context, RA 11234 created EVOSS, an online one-stop shop for energy permitting. It is aimed at power projects rather than household rooftops, but it is the statutory backdrop to faster permitting in the sector."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know an installer is legitimate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask for five things: a licensed professional electrical engineer on the design (regulated under RA 7920); signed and sealed electrical plans; evidence they have completed net-metering applications with your specific distribution utility; written warranty terms that separate panel, inverter and workmanship; and references you can actually telephone. Utilities publish the exact document list they require — Visayan Electric, for example, lists signed and sealed electrical plans and equipment technical specifications among its requirements. An installer unfamiliar with that list for your utility is telling you something useful."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does solar increase my property value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Honestly: we do not have good Philippine evidence for this. The studies showing a resale premium for solar homes come mostly from the United States and Australia, where financing, disclosure rules and buyer expectations all differ from ours. Quoting those numbers here would be borrowing a conclusion from a different market. Our advice is to treat resale value as a possible bonus rather than part of your payback calculation. The savings on your electricity bill are the part you can actually model from your own data — build the decision on that, and let any resale premium be a pleasant surprise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much carbon does home solar actually avoid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on what your grid is burning when you displace it. The Department of Energy publishes a National Grid Emission Factor for exactly this calculation, alongside its Philippine Power Statistics — multiply the kWh your system produces by the current factor for your grid. The national direction is set: the National Renewable Energy Program targets a 35% renewable share of the generation mix by 2030 and 50% by 2040, with solar the single largest planned addition — 54,948 MW of the 98,502 MW the DOE projects between 2023 and 2050."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I read the source documents myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Please do — everything above is sourced so you can check it rather than take our word for it. The most useful starting points: The law: RA 9513, Renewable Energy Act of 2008 . Policy: the Department of Energy's renewable energy fact sheet and Circular DC2025-10-0020 on net metering . Your bill: Meralco's rates archive . Your sunlight: the Global Solar Atlas and free Philippine solar maps . If you find something here that is out of date or wrong, please tell us . Rates change monthly and circulars get superseded."
+      }
+    }
+  ]
+}
+</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://apolaki.ai/"}, {"@type": "ListItem", "position": 2, "name": "FAQs", "item": "https://apolaki.ai/faqs.html"}]}</script>
 </head>
 <body>
@@ -143,6 +439,7 @@
       <button class="faq-tab active" data-group="home">For homeowners</button>
       <button class="faq-tab" data-group="installer">For installers</button>
       <button class="faq-tab" data-group="general">General</button>
+      <button class="faq-tab" data-group="basics">Solar basics</button>
     </div>
 
     <!-- ===== HOMEOWNERS ===== -->
@@ -274,6 +571,195 @@
         </details>
       </div>
     </div>
+
+    <!-- ===== SOLAR BASICS ===== -->
+    <div class="faq-group" data-group="basics">
+      <div class="faq-lang-switch">
+        <span class="lbl">Language</span>
+        <button type="button" data-set-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-set-lang="tl" aria-pressed="false">Tagalog</button>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How do solar panels actually work?</span><span data-lang="tl" lang="tl" hidden>Paano ba talaga gumagana ang solar panel?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Sunlight hits silicon cells and knocks electrons loose, producing direct current (DC). An inverter converts that into the alternating current (AC) your appliances use. The electricity feeds your house first — only what you don't use flows out to the grid. There are no moving parts, which is why panels need so little looking after.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Tumatama ang sikat ng araw sa silicon cells at nagpapakawala ito ng electrons — direct current (DC) ang nabubuo. Ginagawa itong alternating current (AC) ng inverter para magamit ng mga appliance mo. Unang pinapakain ang bahay mo; ang sobra lang ang lumalabas papunta sa grid. Walang gumagalaw na parte, kaya napakakonti ng kailangang alagaan.</p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">What do kW, kWp and kWh actually mean?</span><span data-lang="tl" lang="tl" hidden>Ano ba ang ibig sabihin ng kW, kWp at kWh?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p><b>kW</b> is power — how fast electricity is flowing right now. <b>kWh</b> is energy — power multiplied by time, and it is what Meralco actually bills you for. <b>kWp</b> ("kilowatt-peak") is the rating of a solar array under standard test conditions, so a 5 kWp system is the size you are buying.</p><p>Your bill is in kWh, your system is quoted in kWp, and how many kWh each kWp gives you depends on your roof and your sunlight. That single conversion is where most confusing quotes come from.</p><p class="faq-src"><b>Source:</b> <a href="https://www.worldbank.org/en/topic/energy/publication/solar-photovoltaic-power-potential-by-country" target="_blank" rel="noopener noreferrer">Solar Photovoltaic Power Potential by Country — World Bank / ESMAP</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Ang <b>kW</b> ay power — gaano kabilis dumadaloy ang kuryente ngayon. Ang <b>kWh</b> ay energy — power na minultiply sa oras, at ito ang aktwal na sinisingil sa'yo ng Meralco. Ang <b>kWp</b> ("kilowatt-peak") ang rating ng solar array sa standard test conditions, kaya ang 5 kWp ay ang laki ng binibili mo.</p><p>kWh ang bill mo, kWp ang naka-quote na system mo, at kung ilang kWh ang ibibigay ng bawat kWp ay depende sa bubong at sikat ng araw sa lugar mo. Dito nagmumula ang halos lahat ng nakakalitong quote.</p><p class="faq-src"><b>Sanggunian:</b> <a href="https://www.worldbank.org/en/topic/energy/publication/solar-photovoltaic-power-potential-by-country" target="_blank" rel="noopener noreferrer">Solar Photovoltaic Power Potential by Country — World Bank / ESMAP</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">What is the difference between on-grid, off-grid and hybrid?</span><span data-lang="tl" lang="tl" hidden>Ano ang pagkakaiba ng on-grid, off-grid at hybrid?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p><b>On-grid</b> (grid-tied) has no battery and works alongside your utility. It is the cheapest and pays back fastest — but it shuts down during a brownout. <b>Off-grid</b> runs entirely on batteries with no utility connection: expensive, and meant for places with no line at all. <b>Hybrid</b> has both grid and battery, so selected circuits stay alive during an outage.</p><p>Most Philippine households buying solar to cut a bill are best served by on-grid. Batteries are a backup decision, not a savings decision.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Ang <b>on-grid</b> (grid-tied) ay walang baterya at kasabay gumagana ng utility mo. Ito ang pinakamura at pinakamabilis bumawi — pero namamatay ito kapag may brownout. Ang <b>off-grid</b> ay puro baterya, walang koneksyon sa utility: mahal, at para sa mga lugar na talagang walang linya. Ang <b>hybrid</b> ay may grid at baterya, kaya may piling circuit na buhay kahit may outage.</p><p>Para sa karamihan ng pamilyang Pilipino na bumibili ng solar para mabawasan ang bill, on-grid ang tama. Desisyon sa backup ang baterya, hindi desisyon sa ipon.</p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Will solar work on my roof?</span><span data-lang="tl" lang="tl" hidden>Kakayanin ba ng bubong ko ang solar?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Most Philippine roofs will. What matters is usable unshaded area, orientation, and the condition of the roof itself. The Global Solar Atlas puts the optimum panel tilt for Metro Manila at about 12° — close to flat, which suits the shallow pitches common here.</p><p>Shade is the real enemy. A neighbour's tree or the shadow of a water tank costs far more output than a slightly imperfect angle. And if your roof is due for replacement in the next few years, replace it first — taking an array down and putting it back is pure wasted cost.</p><p class="faq-src"><b>Source:</b> <a href="https://api.globalsolaratlas.info/data/lta?loc=14.5995,120.9842" target="_blank" rel="noopener noreferrer">Global Solar Atlas long-term average site data, Metro Manila — World Bank / ESMAP (data by Solargis)</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Kaya ng karamihan ng bubong sa Pilipinas. Ang mahalaga ay ang lawak na walang lilim, ang direksyon, at ang kalagayan mismo ng bubong. Ayon sa Global Solar Atlas, ang pinakamainam na tilt ng panel sa Metro Manila ay mga 12° — halos patag, na bagay sa mababaw na slope ng karaniwang bubong dito.</p><p>Ang lilim ang tunay na kalaban. Ang puno ng kapitbahay o anino ng water tank ay mas malaki ang bawas kaysa sa bahagyang mali ang anggulo. At kung malapit nang palitan ang bubong mo sa susunod na ilang taon, palitan mo muna — sayang na gastos ang pagtanggal at pagbalik ng panel.</p><p class="faq-src"><b>Sanggunian:</b> <a href="https://api.globalsolaratlas.info/data/lta?loc=14.5995,120.9842" target="_blank" rel="noopener noreferrer">Global Solar Atlas long-term average site data, Metro Manila — World Bank / ESMAP (data ng Solargis)</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How much sun does a Philippine roof actually get?</span><span data-lang="tl" lang="tl" hidden>Gaano ba karaming araw ang natatanggap ng bubong sa Pilipinas?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>A great deal. NASA's POWER dataset puts a Metro Manila rooftop at an annual average of <b>5.10 kWh per m² per day</b>, moving between about 4.15 in December and 6.67 in April.</p><p>For context, the World Bank treats anywhere above 4.5 kWh per installed kWp per day as an excellent candidate for solar PV. The Philippines clears that comfortably — sunlight is not the constraint here.</p><p class="faq-src"><b>Sources:</b> <a href="https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=ALLSKY_SFC_SW_DWN&amp;community=RE&amp;longitude=120.98&amp;latitude=14.60&amp;format=JSON" target="_blank" rel="noopener noreferrer">NASA POWER climatology, Metro Manila — NASA Langley Research Center</a> · <a href="https://www.worldbank.org/en/topic/energy/publication/solar-photovoltaic-power-potential-by-country" target="_blank" rel="noopener noreferrer">Solar Photovoltaic Power Potential by Country — World Bank / ESMAP</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Napakarami. Ayon sa POWER dataset ng NASA, ang bubong sa Metro Manila ay may taunang average na <b>5.10 kWh kada m² kada araw</b>, mula mga 4.15 tuwing Disyembre hanggang 6.67 tuwing Abril.</p><p>Para may batayan: itinuturing ng World Bank na "excellent" para sa solar PV ang kahit anong lugar na lampas 4.5 kWh kada naka-install na kWp kada araw. Malayong nalalampasan ito ng Pilipinas — hindi ang sikat ng araw ang hadlang dito.</p><p class="faq-src"><b>Mga sanggunian:</b> <a href="https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=ALLSKY_SFC_SW_DWN&amp;community=RE&amp;longitude=120.98&amp;latitude=14.60&amp;format=JSON" target="_blank" rel="noopener noreferrer">NASA POWER climatology, Metro Manila — NASA Langley Research Center</a> · <a href="https://www.worldbank.org/en/topic/energy/publication/solar-photovoltaic-power-potential-by-country" target="_blank" rel="noopener noreferrer">Solar Photovoltaic Power Potential by Country — World Bank / ESMAP</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How much does a home solar system cost here?</span><span data-lang="tl" lang="tl" hidden>Magkano ang solar system para sa bahay dito?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>As a planning range, installed residential solar generally runs about ₱50,000 to ₱65,000 per kilowatt, so a 5 kW system lands roughly between ₱250,000 and ₱325,000 depending on equipment and installer.</p><p>Treat any figure you read online — including this one — as a range rather than a quote. Your roof, your consumption, your equipment choices and your installer all move it. Apolaki's free assessment sizes a system against your actual bill so you are not over- or under-buying before you talk to anyone.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Bilang panimulang gabay, ang naka-install na residential solar ay karaniwang nasa ₱50,000 hanggang ₱65,000 kada kilowatt, kaya ang 5 kW na system ay nasa mga ₱250,000 hanggang ₱325,000 depende sa kagamitan at installer.</p><p>Ituring mong range at hindi quote ang kahit anong numerong nababasa mo online — pati na ito. Ang bubong mo, ang konsumo mo, ang piniling kagamitan at ang installer ay lahat may epekto. Ang libreng assessment ng Apolaki ay sinusukat ang system base sa tunay mong bill para hindi ka sobra o kulang bumili bago ka pa makipag-usap kaninuman.</p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How much can I really save on my Meralco bill?</span><span data-lang="tl" lang="tl" hidden>Magkano ba talaga ang matitipid ko sa Meralco bill?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>It depends on your rate and on how much of your electricity you use during daylight. In July 2026 Meralco's all-in residential rate was <b>₱14.8261 per kWh</b>, and a household consuming 400 kWh paid <b>₱6,177.94</b>. Every kWh your panels supply during the day is a kWh you do not buy at that rate.</p><p>One detail worth knowing: Meralco's distribution charge is tiered. It is ₱0.9803 per kWh up to 200 kWh, but ₱2.0941 per kWh above 400 kWh. Because solar shaves off your most expensive block first, a heavy user saves noticeably more per kWh than a light one.</p><p>Rates change monthly, so check the current figures before relying on any calculation.</p><p class="faq-src"><b>Sources:</b> <a href="https://company.meralco.com.ph/news-and-advisories/rates-archives" target="_blank" rel="noopener noreferrer">Rates Archives (monthly rate schedules and sample bills) — Meralco</a> · <a href="https://company.meralco.com.ph/news-and-advisories/higher-residential-rates-july-2026" target="_blank" rel="noopener noreferrer">Residential rates, July 2026 — Meralco</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Depende ito sa rate mo at kung gaano karami ang ginagamit mong kuryente sa araw. Noong Hulyo 2026, ang all-in residential rate ng Meralco ay <b>₱14.8261 kada kWh</b>, at ang pamilyang gumagamit ng 400 kWh ay nagbayad ng <b>₱6,177.94</b>. Bawat kWh na ibinibigay ng panel mo sa araw ay kWh na hindi mo na binibili sa presyong iyon.</p><p>May isang detalyeng dapat mong malaman: naka-tier ang distribution charge ng Meralco. ₱0.9803 kada kWh hanggang 200 kWh, pero ₱2.0941 kada kWh kapag lampas 400 kWh. Dahil unang inaalis ng solar ang pinakamahal mong block, mas malaki ang tipid kada kWh ng malakas gumamit kaysa sa mahina.</p><p>Buwan-buwan nagbabago ang rate, kaya tingnan ang kasalukuyang numero bago ka umasa sa kahit anong kalkulasyon.</p><p class="faq-src"><b>Mga sanggunian:</b> <a href="https://company.meralco.com.ph/news-and-advisories/rates-archives" target="_blank" rel="noopener noreferrer">Rates Archives (buwanang rate schedule at sample bills) — Meralco</a> · <a href="https://company.meralco.com.ph/news-and-advisories/higher-residential-rates-july-2026" target="_blank" rel="noopener noreferrer">Residential rates, Hulyo 2026 — Meralco</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">What is net metering, and how does it work in the Philippines?</span><span data-lang="tl" lang="tl" hidden>Ano ang net metering, at paano ito gumagana sa Pilipinas?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Net metering gives you a two-way connection to the grid: you are charged only for your <em>net</em> consumption and credited for what you export. That is not marketing language — it is the statutory definition in Section 4 of the Renewable Energy Act of 2008 (RA 9513).</p><p>Section 10 of the same Act obliges your distribution utility to enter into a net-metering agreement with qualified end-users on request, without discrimination. So it is a right, not a favour.</p><p>The credit for exported energy is worth less than the retail rate you pay for imported energy, which is why using your own power during the day beats exporting it. Size your system for self-consumption first.</p><p class="faq-src"><b>Source:</b> <a href="https://lawphil.net/statutes/repacts/ra2008/ra_9513_2008.html" target="_blank" rel="noopener noreferrer">Republic Act No. 9513, Renewable Energy Act of 2008, Sections 4 and 10 — Congress of the Philippines</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Binibigyan ka ng net metering ng two-way na koneksyon sa grid: sinisingil ka lang sa <em>net</em> mong konsumo at kinerekredito ang mga ini-export mo. Hindi ito pang-marketing na salita — ito ang legal na depinisyon sa Section 4 ng Renewable Energy Act of 2008 (RA 9513).</p><p>Sa Section 10 ng parehong batas, obligado ang distribution utility mo na pumasok sa net-metering agreement sa mga kwalipikadong end-user kapag hiniling, nang walang diskriminasyon. Karapatan ito, hindi pabor.</p><p>Mas mababa ang halaga ng kredito sa ini-export mo kaysa sa retail rate na binabayaran mo sa kuryenteng kinukuha mo — kaya mas sulit gamitin ang sarili mong kuryente sa araw kaysa i-export. Unahin ang self-consumption sa pagsukat ng system.</p><p class="faq-src"><b>Sanggunian:</b> <a href="https://lawphil.net/statutes/repacts/ra2008/ra_9513_2008.html" target="_blank" rel="noopener noreferrer">Republic Act No. 9513, Renewable Energy Act of 2008, Sections 4 at 10 — Kongreso ng Pilipinas</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How do I actually apply for net metering?</span><span data-lang="tl" lang="tl" hidden>Paano ba talaga mag-apply ng net metering?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>It got considerably lighter recently. An Energy Regulatory Commission advisory dated <b>22 September 2025</b> directed all on-grid distribution utilities to cut the homeowner's paperwork to four items: the application form, a Certificate of Final Electrical Inspection (CFEI) issued by your LGU, the amended Net-Metering Agreement, and the COC application fee.</p><p>The same advisory states that notarisation is <b>not mandatory</b> and that electronic signatures are allowed. Meralco has updated its published process to match.</p><p>Outside Meralco, your own distribution utility runs an equivalent process — Visayan Electric in Cebu, for example, publishes a three-stage flow including a Distribution Impact Study before approval.</p><p class="faq-src"><b>Sources:</b> <a href="https://meralcomain.s3.ap-southeast-1.amazonaws.com/images/ckeditor-documents/Advisory%20to%20On%20Grid%20Distribution%20Utilities%20in%20Compliance%20with%20the%20Net%20Metering%20Program.pdf" target="_blank" rel="noopener noreferrer">Advisory to On-Grid Distribution Utilities in Compliance with the Net-Metering Program, 22 September 2025 — Energy Regulatory Commission (PDF)</a> · <a href="https://www.meralco.com.ph/residential/electric-service/solar-net-metering/application-process" target="_blank" rel="noopener noreferrer">Net-metering application process — Meralco</a> · <a href="https://www.visayanelectric.com/customer-services/apply-electrical-connection-1" target="_blank" rel="noopener noreferrer">Net Metering — Visayan Electric</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Gumaan ito nang malaki kamakailan. Sa advisory ng Energy Regulatory Commission na may petsang <b>22 Setyembre 2025</b>, inatasan ang lahat ng on-grid distribution utility na bawasan sa apat na dokumento ang papeles ng homeowner: ang application form, ang Certificate of Final Electrical Inspection (CFEI) mula sa LGU mo, ang amended Net-Metering Agreement, at ang COC application fee.</p><p>Nakasaad din sa advisory na <b>hindi na kailangang ipa-notaryo</b> at tinatanggap na ang electronic signature. Ina-update na ng Meralco ang kanilang nakalathalang proseso ayon dito.</p><p>Kung wala ka sa Meralco, may katumbas na proseso ang sarili mong distribution utility — halimbawa, ang Visayan Electric sa Cebu ay may nakalathalang tatlong yugto kasama ang Distribution Impact Study bago ang pag-apruba.</p><p class="faq-src"><b>Mga sanggunian:</b> <a href="https://meralcomain.s3.ap-southeast-1.amazonaws.com/images/ckeditor-documents/Advisory%20to%20On%20Grid%20Distribution%20Utilities%20in%20Compliance%20with%20the%20Net%20Metering%20Program.pdf" target="_blank" rel="noopener noreferrer">Advisory to On-Grid Distribution Utilities in Compliance with the Net-Metering Program, 22 Setyembre 2025 — Energy Regulatory Commission (PDF)</a> · <a href="https://www.meralco.com.ph/residential/electric-service/solar-net-metering/application-process" target="_blank" rel="noopener noreferrer">Proseso ng net-metering application — Meralco</a> · <a href="https://www.visayanelectric.com/customer-services/apply-electrical-connection-1" target="_blank" rel="noopener noreferrer">Net Metering — Visayan Electric</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Is there a limit on how big my system can be?</span><span data-lang="tl" lang="tl" hidden>May limitasyon ba sa laki ng system ko?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Yes — and in practice the binding limit is usually your <b>distribution transformer</b>, not the law. Meralco publishes a hosting-capacity table setting how much solar a transformer can carry:</p><p>10 or 15 kVA → 7 kW · 25 kVA → 10 kW · 37.5 kVA → 14 kW · 50 kVA → 19 kW · 75 kVA → 29 kW · 100 kVA → 38 kW.</p><p>That capacity is shared across everyone on the same transformer, so if neighbours have already installed, some of it may be taken. A typical home system of 3–8 kW usually fits comfortably, but Meralco does a final assessment per application — which is why an experienced installer checks this early rather than after you have paid.</p><p class="faq-src"><b>Source:</b> <a href="https://www.meralco.com.ph/residential/electric-service/solar-net-metering/application-process" target="_blank" rel="noopener noreferrer">Net-metering application process, hosting capacity table — Meralco</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Oo — at sa totoong buhay, ang <b>distribution transformer</b> mo ang karaniwang naglilimita, hindi ang batas. May nakalathalang hosting-capacity table ang Meralco kung gaano karaming solar ang kaya ng isang transformer:</p><p>10 o 15 kVA → 7 kW · 25 kVA → 10 kW · 37.5 kVA → 14 kW · 50 kVA → 19 kW · 75 kVA → 29 kW · 100 kVA → 38 kW.</p><p>Hinahati ang kapasidad na ito sa lahat ng nasa iisang transformer, kaya kung nauna nang mag-install ang mga kapitbahay, baka may naubos na. Karaniwang kasya ang 3–8 kW na home system, pero may panghuling assessment ang Meralco kada aplikasyon — kaya sinusuri ito nang maaga ng bihasang installer, hindi pagkatapos mong magbayad.</p><p class="faq-src"><b>Sanggunian:</b> <a href="https://www.meralco.com.ph/residential/electric-service/solar-net-metering/application-process" target="_blank" rel="noopener noreferrer">Proseso ng net-metering application, hosting capacity table — Meralco</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Are there government incentives for homeowners?</span><span data-lang="tl" lang="tl" hidden>May tulong ba ang gobyerno para sa mga homeowner?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>This is worth being precise about, because it is widely misreported. The headline incentives in the Renewable Energy Act — the seven-year income tax holiday, duty-free importation of equipment, zero-rated VAT and the 10% corporate tax rate — apply to <b>registered RE developers</b>. They are not a discount a household gets for putting panels on its roof.</p><p>What the law does give a homeowner is the right to net metering itself, under Section 10. The Act also waives the government share for micro-scale projects of 100 kW or less used for communal, non-commercial purposes (Section 13).</p><p>If an installer tells you your household qualifies for the developer incentives, ask them to show you where.</p><p class="faq-src"><b>Source:</b> <a href="https://lawphil.net/statutes/repacts/ra2008/ra_9513_2008.html" target="_blank" rel="noopener noreferrer">Republic Act No. 9513, Sections 10, 13 and 15 — Congress of the Philippines</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Dapat maging tumpak dito dahil madalas itong maling maiulat. Ang mga sikat na insentibo sa Renewable Energy Act — ang pitong taong income tax holiday, duty-free na pag-angkat ng kagamitan, zero-rated VAT at ang 10% corporate tax — ay para sa <b>rehistradong RE developer</b>. Hindi ito diskwentong makukuha ng isang pamilya sa paglalagay ng panel sa bubong.</p><p>Ang ibinibigay ng batas sa homeowner ay ang karapatan mismo sa net metering, sa ilalim ng Section 10. Ipinapawalang-bisa rin ng batas ang government share para sa micro-scale na proyektong 100 kW pababa na ginagamit sa komunal at di-komersyal na layunin (Section 13).</p><p>Kung may installer na nagsasabing kwalipikado ang pamilya mo sa insentibo ng developer, patunayan nila kung saan nakasaad.</p><p class="faq-src"><b>Sanggunian:</b> <a href="https://lawphil.net/statutes/repacts/ra2008/ra_9513_2008.html" target="_blank" rel="noopener noreferrer">Republic Act No. 9513, Sections 10, 13 at 15 — Kongreso ng Pilipinas</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Do I need batteries?</span><span data-lang="tl" lang="tl" hidden>Kailangan ko ba ng baterya?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Not to cut your bill. Batteries do not generate anything — they move energy through time, and they are a large share of total system cost. If your goal is a smaller electricity bill, a grid-tied system without batteries pays back fastest.</p><p>Add batteries when you specifically want to ride through brownouts, or when you use most of your electricity at night and net metering credits do not compensate for it. That is a comfort-and-resilience decision with its own price tag, and it is fine to make it deliberately.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Hindi, kung ang layunin ay bawasan ang bill. Walang ginagawang kuryente ang baterya — inililipat lang nito ang enerhiya sa ibang oras, at malaking bahagi ito ng kabuuang gastos. Kung mas mababang bill ang hangad mo, ang grid-tied na walang baterya ang pinakamabilis bumawi.</p><p>Maglagay ng baterya kung talagang gusto mong may kuryente tuwing brownout, o kung gabi mo halos ginagamit ang kuryente at hindi sapat ang net-metering credit. Desisyon ito sa ginhawa at resilience na may sariling presyo — at maayos lang iyon basta sinadya.</p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Will solar keep my lights on during a brownout?</span><span data-lang="tl" lang="tl" hidden>May ilaw ba ako kapag brownout dahil sa solar?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Not with a standard grid-tied system, and this surprises people. When the grid goes down, your inverter is required to disconnect — a safety behaviour called <b>anti-islanding</b>. It exists so that your panels cannot energise a line that a utility crew is repairing, which would be lethal for them.</p><p>To keep power during an outage you need a hybrid inverter with battery storage, or a transfer arrangement that isolates selected circuits from the grid. Ask about this explicitly before you buy if outage resilience is part of why you want solar.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Hindi, kung karaniwang grid-tied system — at nagugulat dito ang marami. Kapag bumagsak ang grid, kailangang mag-disconnect ang inverter mo — tinatawag itong <b>anti-islanding</b>. Naroon ito para hindi mabigyan ng kuryente ng panel mo ang linyang inaayos ng mga tauhan ng utility, na maaaring ikamatay nila.</p><p>Para may kuryente ka habang may outage, kailangan mo ng hybrid inverter na may baterya, o kaayusang naghihiwalay ng piling circuit mula sa grid. Itanong mo ito nang tahasan bago bumili kung bahagi ng dahilan mo ang resilience sa brownout.</p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">What happens on cloudy days and in the rainy season?</span><span data-lang="tl" lang="tl" hidden>Paano kapag maulap at tag-ulan?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Output drops but does not stop — panels also work on diffuse light, which is why an overcast day still produces. The seasonal swing in Metro Manila is real but not dramatic: NASA's data moves between roughly 4.15 kWh/m² per day in December and 6.67 in April, a ratio of about 1.6 between worst and best month.</p><p>The practical lesson is to size a system against your <em>annual</em> consumption, not your sunniest month. A system sized to peak-month output will overspend and export cheaply for most of the year.</p><p class="faq-src"><b>Source:</b> <a href="https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=ALLSKY_SFC_SW_DWN&amp;community=RE&amp;longitude=120.98&amp;latitude=14.60&amp;format=JSON" target="_blank" rel="noopener noreferrer">NASA POWER monthly climatology, Metro Manila — NASA Langley Research Center</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Bumababa ang produksyon pero hindi humihinto — gumagana rin ang panel sa diffuse na liwanag, kaya may nagagawa pa rin kahit maulap. Totoo ang pagbabago kada panahon sa Metro Manila pero hindi sobra: ayon sa datos ng NASA, mula mga 4.15 kWh/m² kada araw tuwing Disyembre hanggang 6.67 tuwing Abril — mga 1.6 na ratio sa pagitan ng pinakamahina at pinakamalakas na buwan.</p><p>Ang praktikal na aral: sukatin ang system base sa <em>taunang</em> konsumo mo, hindi sa pinakamaaraw na buwan. Ang system na sinukat para sa pinakamataas na buwan ay sobra ang gastos at mumurahing i-export sa halos buong taon.</p><p class="faq-src"><b>Sanggunian:</b> <a href="https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=ALLSKY_SFC_SW_DWN&amp;community=RE&amp;longitude=120.98&amp;latitude=14.60&amp;format=JSON" target="_blank" rel="noopener noreferrer">NASA POWER monthly climatology, Metro Manila — NASA Langley Research Center</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Will typhoons damage my panels?</span><span data-lang="tl" lang="tl" hidden>Masisira ba ang panel ko sa bagyo?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>The panels are rarely the weak point — the mounting is. Racking has to be engineered for local wind loading, anchored into sound roof structure rather than just sheeting, and sealed properly at every penetration. Most typhoon failures are installation failures.</p><p>Insist that the electrical design is prepared and signed by a licensed professional electrical engineer; that profession is regulated in the Philippines under RA 7920. Ask for the wind-load rating of the mounting system in writing, and check whether your home insurance covers a roof-mounted array — many policies do not by default.</p><p class="faq-src"><b>Source:</b> <a href="https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html" target="_blank" rel="noopener noreferrer">Republic Act No. 7920, New Electrical Engineering Law — Congress of the Philippines</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Bihirang ang panel ang mahina — ang pagkakakabit ang mahina. Kailangang idisenyo ang racking para sa lakas ng hangin sa lugar mo, ikabit sa matibay na estruktura ng bubong at hindi sa yero lang, at selyuhan nang maayos ang bawat butas. Karamihan ng pinsala sa bagyo ay pagkakamali sa pagkakabit.</p><p>Igiit na inihanda at nilagdaan ng lisensyadong professional electrical engineer ang electrical design; regulado ang propesyong ito sa Pilipinas sa ilalim ng RA 7920. Hingin nang nakasulat ang wind-load rating ng mounting system, at tingnan kung saklaw ng insurance ng bahay mo ang naka-bubong na panel — marami ang hindi kusang sakop.</p><p class="faq-src"><b>Sanggunian:</b> <a href="https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html" target="_blank" rel="noopener noreferrer">Republic Act No. 7920, New Electrical Engineering Law — Kongreso ng Pilipinas</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How long do panels last, and what maintenance do they need?</span><span data-lang="tl" lang="tl" hidden>Gaano katagal ang panel, at anong maintenance ang kailangan?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Panels typically carry 25-year performance warranties and degrade gradually rather than failing outright — a panel at year 25 is usually still producing, just somewhat less. The <b>inverter</b> is the component most likely to need replacing first, commonly somewhere around year 10 to 15, and you should budget for that from the start.</p><p>Day-to-day maintenance is mostly keeping the glass clean. Dust, salt near the coast and bird droppings all cost real output. Add an occasional inspection of mounting hardware and electrical connections, which matters more here than in milder climates.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Karaniwang may 25-taong performance warranty ang panel at unti-unting humihina sa halip na basta masira — kadalasan may naibibigay pa rin ang panel sa ika-25 taon, konti nga lang. Ang <b>inverter</b> ang bahaging malamang unang mapalitan, madalas sa pagitan ng ika-10 at ika-15 taon, at dapat may nakalaan ka na dito mula umpisa.</p><p>Ang pang-araw-araw na maintenance ay halos paglilinis lang ng salamin. May bawas sa produksyon ang alikabok, asin kung malapit sa dagat, at dumi ng ibon. Dagdagan ng paminsan-minsang inspeksyon ng mounting at koneksyon — mas mahalaga ito dito kaysa sa mas banayad na klima.</p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How much roof space do I need?</span><span data-lang="tl" lang="tl" hidden>Gaano kalaking bubong ang kailangan ko?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>A reasonable planning figure is 5 to 7 m² of unshaded roof per kWp, so a 5 kWp array needs roughly 25 to 35 m². Higher-efficiency panels need less area for the same output, which matters on a small or awkward roof.</p><p>The number that actually constrains you is usable, unshaded, structurally sound area facing a sensible direction — not total roof area. A large roof with a water tank in the middle of it can be worth less than a small clean one.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Makatuwirang panimulang bilang ang 5 hanggang 7 m² ng bubong na walang lilim kada kWp, kaya ang 5 kWp ay nangangailangan ng mga 25 hanggang 35 m². Mas kaunting espasyo ang kailangan ng mas mataas na efficiency na panel para sa parehong produksyon — mahalaga ito sa maliit o pasikot-sikot na bubong.</p><p>Ang tunay na naglilimita ay ang magagamit, walang lilim, matibay at nakaharap sa tamang direksyon na bahagi — hindi ang kabuuang laki ng bubong. Ang malaking bubong na may water tank sa gitna ay maaaring mas mababa ang halaga kaysa sa maliit pero malinis.</p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Do I need a permit to install solar?</span><span data-lang="tl" lang="tl" hidden>Kailangan ba ng permit para maglagay ng solar?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Yes. A rooftop array is a structural and electrical alteration to your home, so you deal with your LGU as well as your utility. The clearest evidence of this is that the <b>Certificate of Final Electrical Inspection</b> required in your net-metering application is issued by the LGU, not by the utility.</p><p>Requirements differ by city — Quezon City's Department of the Building Official, for instance, publishes its own — so ask early rather than after the panels are on the roof. A competent installer normally handles this for you; ask whose responsibility it is before signing.</p><p>For context, RA 11234 created EVOSS, an online one-stop shop for energy permitting. It is aimed at power projects rather than household rooftops, but it is the statutory backdrop to faster permitting in the sector.</p><p class="faq-src"><b>Sources:</b> <a href="https://meralcomain.s3.ap-southeast-1.amazonaws.com/images/ckeditor-documents/Advisory%20to%20On%20Grid%20Distribution%20Utilities%20in%20Compliance%20with%20the%20Net%20Metering%20Program.pdf" target="_blank" rel="noopener noreferrer">ERC Advisory, 22 September 2025, on CFEI issuance (PDF)</a> · <a href="https://quezoncity.gov.ph/departments/department-of-the-building-official/" target="_blank" rel="noopener noreferrer">Department of the Building Official — Quezon City Government</a> · <a href="https://lawphil.net/statutes/repacts/ra2019/ra_11234_2019.html" target="_blank" rel="noopener noreferrer">Republic Act No. 11234, EVOSS Act — Congress of the Philippines</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Oo. Ang naka-bubong na array ay pagbabago sa estruktura at kuryente ng bahay mo, kaya may kinalaman dito ang LGU at ang utility. Ang pinakamalinaw na patunay: ang <b>Certificate of Final Electrical Inspection</b> na kailangan sa net-metering application mo ay ibinibigay ng LGU, hindi ng utility.</p><p>Magkaiba ang requirement kada lungsod — halimbawa, may sariling nakalathala ang Department of the Building Official ng Quezon City — kaya magtanong nang maaga, hindi pagkatapos maikabit ang panel. Karaniwang inaasikaso ito ng magaling na installer; alamin kung kanino ang responsibilidad bago pumirma.</p><p>Para sa konteksto, nilikha ng RA 11234 ang EVOSS, isang online one-stop shop para sa permit sa enerhiya. Nakatuon ito sa mga power project at hindi sa bubong ng bahay, pero ito ang legal na batayan ng mas mabilis na permit sa sektor.</p><p class="faq-src"><b>Mga sanggunian:</b> <a href="https://meralcomain.s3.ap-southeast-1.amazonaws.com/images/ckeditor-documents/Advisory%20to%20On%20Grid%20Distribution%20Utilities%20in%20Compliance%20with%20the%20Net%20Metering%20Program.pdf" target="_blank" rel="noopener noreferrer">ERC Advisory, 22 Setyembre 2025, tungkol sa CFEI (PDF)</a> · <a href="https://quezoncity.gov.ph/departments/department-of-the-building-official/" target="_blank" rel="noopener noreferrer">Department of the Building Official — Pamahalaang Lungsod ng Quezon</a> · <a href="https://lawphil.net/statutes/repacts/ra2019/ra_11234_2019.html" target="_blank" rel="noopener noreferrer">Republic Act No. 11234, EVOSS Act — Kongreso ng Pilipinas</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How do I know an installer is legitimate?</span><span data-lang="tl" lang="tl" hidden>Paano ko malalaman kung lehitimo ang installer?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Ask for five things: a licensed professional electrical engineer on the design (regulated under RA 7920); signed and sealed electrical plans; evidence they have completed net-metering applications with <em>your specific</em> distribution utility; written warranty terms that separate panel, inverter and workmanship; and references you can actually telephone.</p><p>Utilities publish the exact document list they require — Visayan Electric, for example, lists signed and sealed electrical plans and equipment technical specifications among its requirements. An installer unfamiliar with that list for your utility is telling you something useful.</p><p class="faq-src"><b>Sources:</b> <a href="https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html" target="_blank" rel="noopener noreferrer">Republic Act No. 7920, New Electrical Engineering Law — Congress of the Philippines</a> · <a href="https://www.visayanelectric.com/customer-services/apply-electrical-connection-1" target="_blank" rel="noopener noreferrer">Net Metering requirements — Visayan Electric</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Hingin ang limang bagay: lisensyadong professional electrical engineer sa disenyo (regulado sa ilalim ng RA 7920); electrical plans na may pirma at selyo; patunay na nakapagtapos na sila ng net-metering application sa <em>mismong</em> distribution utility mo; nakasulat na warranty na hiwalay para sa panel, inverter at pagkakagawa; at reference na kaya mong tawagan.</p><p>Nakalathala ng mga utility ang eksaktong listahan ng dokumentong kailangan — halimbawa, kabilang sa Visayan Electric ang electrical plans na may pirma at selyo at ang technical specs ng kagamitan. Ang installer na hindi pamilyar sa listahang iyon para sa utility mo ay may sinasabi sa'yo.</p><p class="faq-src"><b>Mga sanggunian:</b> <a href="https://lawphil.net/statutes/repacts/ra1995/ra_7920_1995.html" target="_blank" rel="noopener noreferrer">Republic Act No. 7920, New Electrical Engineering Law — Kongreso ng Pilipinas</a> · <a href="https://www.visayanelectric.com/customer-services/apply-electrical-connection-1" target="_blank" rel="noopener noreferrer">Mga requirement sa Net Metering — Visayan Electric</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Does solar increase my property value?</span><span data-lang="tl" lang="tl" hidden>Tumataas ba ang halaga ng bahay dahil sa solar?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Honestly: we do not have good Philippine evidence for this. The studies showing a resale premium for solar homes come mostly from the United States and Australia, where financing, disclosure rules and buyer expectations all differ from ours. Quoting those numbers here would be borrowing a conclusion from a different market.</p><p>Our advice is to treat resale value as a possible bonus rather than part of your payback calculation. The savings on your electricity bill are the part you can actually model from your own data — build the decision on that, and let any resale premium be a pleasant surprise.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Tapatan: wala tayong maayos na ebidensyang Pilipino tungkol dito. Ang mga pag-aaral na nagpapakita ng mas mataas na halaga ng bahay na may solar ay galing halos sa Estados Unidos at Australia, kung saan iba ang pinansya, mga patakaran sa disclosure at inaasahan ng mamimili. Panghihiram ng konklusyon mula sa ibang merkado ang pagbanggit ng mga numerong iyon dito.</p><p>Payo namin: ituring na posibleng bonus ang resale value, hindi bahagi ng kalkulasyon mo sa payback. Ang tipid sa bill ng kuryente ang bahaging kaya mong sukatin mula sa sarili mong datos — doon mo ibase ang desisyon, at hayaang sorpresa na lang ang anumang dagdag sa halaga.</p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">How much carbon does home solar actually avoid?</span><span data-lang="tl" lang="tl" hidden>Gaano karaming carbon ang naiiwasan ng solar sa bahay?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>It depends on what your grid is burning when you displace it. The Department of Energy publishes a <b>National Grid Emission Factor</b> for exactly this calculation, alongside its Philippine Power Statistics — multiply the kWh your system produces by the current factor for your grid.</p><p>The national direction is set: the National Renewable Energy Program targets a 35% renewable share of the generation mix by 2030 and 50% by 2040, with solar the single largest planned addition — 54,948 MW of the 98,502 MW the DOE projects between 2023 and 2050.</p><p class="faq-src"><b>Sources:</b> <a href="https://doe.gov.ph/site/epimb/articles/group/statistics?category=Philippine%20Power%20Statistics&amp;display_type=Card" target="_blank" rel="noopener noreferrer">Philippine Power Statistics and National Grid Emission Factor — Department of Energy</a> · <a href="https://prod-cms.doe.gov.ph/documents/d/guest/doe-renewable-energy" target="_blank" rel="noopener noreferrer">Renewable Energy sector fact sheet — Department of Energy</a></p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Depende kung ano ang sinusunog ng grid mo sa oras na papalitan mo ito. Naglalathala ang Department of Energy ng <b>National Grid Emission Factor</b> para mismo sa kalkulasyong ito, kasama ng Philippine Power Statistics — i-multiply ang kWh na nagagawa ng system mo sa kasalukuyang factor ng grid mo.</p><p>Malinaw ang direksyon ng bansa: layon ng National Renewable Energy Program na maging 35% ang bahagi ng renewable sa generation mix pagsapit ng 2030 at 50% sa 2040, kung saan solar ang pinakamalaking planong dagdag — 54,948 MW sa 98,502 MW na tinatayang kailangan ng DOE mula 2023 hanggang 2050.</p><p class="faq-src"><b>Mga sanggunian:</b> <a href="https://doe.gov.ph/site/epimb/articles/group/statistics?category=Philippine%20Power%20Statistics&amp;display_type=Card" target="_blank" rel="noopener noreferrer">Philippine Power Statistics at National Grid Emission Factor — Department of Energy</a> · <a href="https://prod-cms.doe.gov.ph/documents/d/guest/doe-renewable-energy" target="_blank" rel="noopener noreferrer">Renewable Energy sector fact sheet — Department of Energy</a></p></div>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span data-lang="en">Where can I read the source documents myself?</span><span data-lang="tl" lang="tl" hidden>Saan ko mababasa mismo ang mga dokumento?</span><span class="pm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+          <div class="faq-answer">
+            <div data-lang="en"><p>Please do — everything above is sourced so you can check it rather than take our word for it. The most useful starting points:</p><p><b>The law:</b> <a href="https://lawphil.net/statutes/repacts/ra2008/ra_9513_2008.html" target="_blank" rel="noopener noreferrer">RA 9513, Renewable Energy Act of 2008</a>. <b>Policy:</b> the Department of Energy's <a href="https://prod-cms.doe.gov.ph/documents/d/guest/doe-renewable-energy" target="_blank" rel="noopener noreferrer">renewable energy fact sheet</a> and <a href="https://prod-cms.doe.gov.ph/documents/d/guest/dc2025-10-0020-pdf" target="_blank" rel="noopener noreferrer">Circular DC2025-10-0020 on net metering</a>. <b>Your bill:</b> Meralco's <a href="https://company.meralco.com.ph/news-and-advisories/rates-archives" target="_blank" rel="noopener noreferrer">rates archive</a>. <b>Your sunlight:</b> the <a href="https://globalsolaratlas.info/map?c=12.5,122,6" target="_blank" rel="noopener noreferrer">Global Solar Atlas</a> and <a href="https://solargis.com/resources/free-maps-and-gis-data/philippines" target="_blank" rel="noopener noreferrer">free Philippine solar maps</a>.</p><p>If you find something here that is out of date or wrong, please <a href="/contact.html">tell us</a>. Rates change monthly and circulars get superseded.</p></div>
+            <div data-lang="tl" lang="tl" hidden><p>Sige lang — may sanggunian ang lahat ng nasa itaas para masuri mo mismo at hindi ka basta maniwala sa amin. Ang pinakamagandang simulan:</p><p><b>Ang batas:</b> <a href="https://lawphil.net/statutes/repacts/ra2008/ra_9513_2008.html" target="_blank" rel="noopener noreferrer">RA 9513, Renewable Energy Act of 2008</a>. <b>Patakaran:</b> ang <a href="https://prod-cms.doe.gov.ph/documents/d/guest/doe-renewable-energy" target="_blank" rel="noopener noreferrer">renewable energy fact sheet</a> ng Department of Energy at ang <a href="https://prod-cms.doe.gov.ph/documents/d/guest/dc2025-10-0020-pdf" target="_blank" rel="noopener noreferrer">Circular DC2025-10-0020 tungkol sa net metering</a>. <b>Ang bill mo:</b> ang <a href="https://company.meralco.com.ph/news-and-advisories/rates-archives" target="_blank" rel="noopener noreferrer">rates archive</a> ng Meralco. <b>Ang araw sa lugar mo:</b> ang <a href="https://globalsolaratlas.info/map?c=12.5,122,6" target="_blank" rel="noopener noreferrer">Global Solar Atlas</a> at ang <a href="https://solargis.com/resources/free-maps-and-gis-data/philippines" target="_blank" rel="noopener noreferrer">libreng solar maps ng Pilipinas</a>.</p><p>Kung may makita kang luma na o mali dito, <a href="/contact.html">sabihan mo kami</a>. Buwan-buwan nagbabago ang rate at napapalitan ang mga circular.</p></div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
   </div>
 </section>
 

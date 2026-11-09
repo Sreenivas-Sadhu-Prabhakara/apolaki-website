@@ -181,6 +181,18 @@
             <textarea id="message" name="message" placeholder="A few details help us reply well — your city, your monthly bill, or what you'd like to know." required></textarea>
           </div>
 
+          <!-- Consent is a lawful basis under RA 10173, and an unticked box is
+               never submitted, so `required` is what makes the consent real:
+               the browser blocks the send and Netlify only ever records a
+               submission where the visitor actually ticked it. -->
+          <div class="field-consent">
+            <input type="checkbox" id="consent" name="consent" value="yes" required>
+            <label for="consent">
+              I agree that Apolaki may use the details above to reply to this message, as
+              described in the <a href="/privacy.html">Privacy &amp; Data Policy</a>.
+            </label>
+          </div>
+
           <button type="submit" class="btn btn-primary btn-block">Send message</button>
         </form>
 

@@ -846,6 +846,12 @@ body:has(.chero) .nv .bg span{background:var(--ink)}
 .cform textarea{min-height:120px;resize:vertical}
 .cform input:focus,.cform select:focus,.cform textarea:focus{border-color:var(--blue)}
 .cform .b{justify-self:start;margin-top:4px}
+/* RA 10173 consent. An unticked box is never submitted, so `required` is what makes the
+   consent real — the form carries no novalidate, so the browser enforces it before submit. */
+.cform .field-consent{display:flex;align-items:flex-start;gap:10px;margin:2px 0 4px}
+.cform .field-consent input[type="checkbox"]{width:17px;height:17px;margin:3px 0 0;flex:0 0 auto;accent-color:var(--gold);cursor:pointer}
+.cform .field-consent label{font-weight:400;font-size:.87rem;line-height:1.55;color:var(--ink-70);margin-bottom:0;cursor:pointer}
+.cform .field-consent label a{color:inherit;text-decoration:underline}
 .cform-ok{display:none;padding:16px 18px;border-radius:14px;background:rgba(21,121,74,.08);
   color:#15794A;font-weight:600;font-size:.9rem}
 .cform-ok.on{display:block}

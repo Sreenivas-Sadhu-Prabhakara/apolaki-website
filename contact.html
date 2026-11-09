@@ -127,6 +127,11 @@ src="https://www.facebook.com/tr?id=2200026938061467&ev=PageView&noscript=1"
             </select>
           </div>
           <div><label for="cm">Message</label><textarea id="cm" name="message" required maxlength="5000" placeholder="What can we help with?"></textarea></div>
+          <div class="field-consent">
+            <input type="checkbox" id="consent" name="consent" value="yes" required>
+            <label for="consent">I agree that Apolaki may use the details above to reply to this
+              message, as described in the <a href="privacy.html">Privacy &amp; Data Policy</a>.</label>
+          </div>
           <p class="form-err" role="alert" hidden></p>
           <button type="submit" class="b b-blue" data-busy="Sending…">Send message <svg class="ar" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
